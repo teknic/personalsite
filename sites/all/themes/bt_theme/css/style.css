@@ -1,0 +1,68 @@
+/**
+ * This file should get overwritten if Method 1 is used. If Method 2 is chosen,
+ * remove this comment and start adding your styles to this file.
+ */
+
+body {
+    background: #8cffb7
+}
+
+.navbar-default {
+    background: white !important;
+}
+
+.white {
+    background: white;
+}
+
+.cta-section img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.cta-section .cta-icon {
+    align: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.cta-section h3 {
+    text-align: center;
+}
+
+.fa-10x {
+    font-size: 10em !important;
+}
+
+.fa-8x {
+    font-size: 8em !important;
+}
+
+.round {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+.view-blog-flexslider h2 {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 100%;
+}
+
+.view-blog-flexslider h2 span {
+    color: white;
+    font: bold 32px/45px Helvetica, Sans-Serif;
+    letter-spacing: -1px;
+    background: rgb(0, 0, 0); /* fallback color */
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+}
+
+#navbar li {
+    margin: 0 10px 0 10px;
+}
