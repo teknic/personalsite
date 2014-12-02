@@ -73,80 +73,101 @@
  * @ingroup themeable
  */
 ?>
-<header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
-  <div class="container">
-    <div class="navbar-header">
-      <i class="pull-left fa fa-html5 fa-4x"></i>
-<!--      <a class="name navbar-brand" href="--><?php //print $front_page; ?><!--" title="--><?php //print t('Home'); ?><!--">--><?php //print $site_name; ?><!--</a>-->
-    </div>
 
-    <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
-      <div class="navbar-collapse collapse">
-        <nav role="navigation">
-          <?php if (!empty($primary_nav)): ?>
-            <?php print render($primary_nav); ?>
-          <?php endif; ?>
-        </nav>
+<div class="wrap">
+
+  <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/"><i class="pull-left fa fa-html5 fa-4x"></i></a>
       </div>
-      <?php print render($search); ?>
-    <?php endif; ?>
-  </div>
-</header>
-
-<div class="main-container container">
-
-  <header role="banner" id="page-header">
-
-  </header> <!-- /#page-header -->
-
-  <div class="row">
-
-    <section<?php print $content_column_class; ?>>
-      <?php print render($page['content']); ?>
-    </section>
-
-    <div class="cta-section container round">
-      <div class="row">
-        <div class="col-sm-3 round white">
-          <h3>Modules</h3>
-          <p>Modules I've open sourced.</p>
-          <div class="cta-icon"><i class="fa fa-tasks fa-8x"></i></div>
+      <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
+        <div class="navbar-collapse collapse">
+          <nav role="navigation">
+            <?php if (!empty($primary_nav)): ?>
+              <?php print render($primary_nav); ?>
+            <?php endif; ?>
+          </nav>
         </div>
-        <div class="col-sm-3 round white">
-          <h3>Projects</h3>
-          <p>Projects that I've worked on.</p>
-          <div class="cta-icon"><i class="fa fa-folder-open-o fa-8x"></i></div>
-        </div>
-        <div class="col-sm-3 round white">
-          <h3>Tutorials</h3>
-          <p>How to's and step-by-step's.</p>
-          <div class="cta-icon"><i class="fa fa-file-code-o fa-8x"></i></div>
+        <?php print render($search); ?>
+      <?php endif; ?>
+    </div>
+  </header>
+
+  <div class="main-container container">
+    <div class="row">
+      <!-- Content -->
+      <section<?php print $content_column_class; ?>>
+        <?php print render($page['content']); ?>
+      </section>
+      <!-- CTAs -->
+      <div class="cta-section container round">
+        <div class="row">
+          <div class="col-sm-3 round white">
+            <h3>Modules</h3>
+
+            <p>Modules I've open sourced.</p>
+
+            <div class="cta-icon"><i class="fa fa-tasks fa-8x"></i></div>
+          </div>
+          <div class="col-sm-3 round white">
+            <h3>Projects</h3>
+
+            <p>Projects that I've worked on.</p>
+
+            <div class="cta-icon"><i class="fa fa-folder-open-o fa-8x"></i>
+            </div>
+          </div>
+          <div class="col-sm-3 round white">
+            <h3>Tutorials</h3>
+
+            <p>How to's and step-by-step's.</p>
+
+            <div class="cta-icon"><i class="fa fa-file-code-o fa-8x"></i></div>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
+
+  <div id="slideout">
+    <h3 class="vertical-text">Connect</h3>
+    <div id="slideout_inner">
+      <ul>
+        <li><a href="#"><i class="fa fa-github fa-2x"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter fa-2x"></i></a></li>
+        <li><a href="#"><i class="fa fa-stack-overflow fa-2x"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+        <li><a href="#"><i class="fa fa-drupal fa-2x"></i></a></li>
+        <li><a href="#"><i class="fa fa-youtube fa-2x"></i></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bottom-content container">
+    <div class="row">
+      <div class="col-sm-6">
+        <?php echo $categories; ?>
+      </div>
+      <div class="col-sm-6">
+        <h2>Recent Posts</h2>
+        <?php echo $recent_posts; ?>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<footer class="footer container">
-  <div class="row">
-    <div class="col-sm-4">
-      <?php echo $categories; ?>
-    </div>
-    <div class="col-sm-4">
-      <h2>Recent Posts</h2>
-      <?php echo $recent_posts; ?>
-    </div>
-    <div class="col-sm-4">
-      <h2></h2>
-      <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Modules</a></li>
-        <li><a href="#">Tutorials</a></li>
-        <li><a href="#">Resume</a></li>
-      </ul>
+<footer id="footer">
+  <div class="container footercontainer">
+    <p class="text-muted credit"><i class="fa fa-copyright"></i> Brandon Tate</p>
+    <div class="connect">
+      <i class="fa fa-github fa-2x"></i>
+      <i class="fa fa-twitter fa-2x"></i>
+      <i class="fa fa-stack-overflow fa-2x"></i>
+      <i class="fa fa-linkedin-square fa-2x"></i>
+      <i class="fa fa-drupal fa-2x"></i>
+      <i class="fa fa-youtube fa-2x"></i>
     </div>
   </div>
 </footer>

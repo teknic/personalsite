@@ -18,6 +18,7 @@ function bt_core_preprocess_page(&$variables) {
 
   $view = views_get_view('recent_posts');
   $view->set_display('block');
+  $view->pre_execute();
   $view->execute();
   $variables['recent_posts'] = $view->render('block');
 }
@@ -59,4 +60,13 @@ function bt_core_theme($existing, $type, $theme, $path) {
   );
 
   return $items;
+}
+
+/**
+ * @param $vars
+ */
+function bt_core_preprocess_views_view_table(&$vars) {
+  if (isset($vars['view']->name) && $vars['view']->name == 'recent_posts') {
+    $vars['classes_array'][] = 'table table-striped';
+  }
 }

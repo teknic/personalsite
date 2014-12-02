@@ -7,22 +7,23 @@
     Global changes
 */
 
+html,
 body {
-    background: #8cffb7
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
 }
-
+body {
+    background: #a7ffcb;
+}
 .white {
     background: white;
 }
-
 .fa-10x {
     font-size: 10em !important;
 }
-
 .fa-8x {
     font-size: 8em !important;
 }
-
 .round {
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -30,7 +31,6 @@ body {
     margin-left: 35px;
     margin-right: 35px;
 }
-
 @font-face {
     font-family: 'CodePro'; /*a name to be used later*/
     src: url('/sites/all/themes/bt_theme/fonts/Code_Pro_Demo-webfont.ttf'); /*URL to font*/
@@ -43,13 +43,20 @@ body {
 .navbar-default {
     background: white !important;
 }
-
 #navbar a {
     font-family: 'CodePro';
 }
-
 .navbar-nav li {
     padding-top: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+.navbar-nav li:hover {
+    background-color: #80a7ff;
+}
+.navbar-header a {
+    color: inherit;
 }
 
 
@@ -59,14 +66,12 @@ body {
 .panels-flexible-region-1-center {
     width: 100% !important;
 }
-
 .view-blog-flexslider h2 {
     position: absolute;
     top: 50px;
     right: 0;
     width: 100%;
 }
-
 .view-blog-flexslider h2 span {
     color: white;
     font: bold 32px/45px Helvetica, Sans-Serif;
@@ -85,17 +90,14 @@ body {
     margin-right: auto;
     margin-left: auto;
 }
-
 .cta-section .cta-icon {
     align: center;
     text-align: center;
     padding: 10px 10px 20px 10px;
 }
-
 .cta-section h3 {
     text-align: center;
 }
-
 .cta-section p {
     text-align: center;
 }
@@ -103,7 +105,121 @@ body {
 /**
     Search block form header
 */
-#search-block-form {
+.content-search {
     margin-top: -45px !important;
     padding-bottom: 10px;
+}
+
+/**
+    Tag Cloud
+*/
+.categories a {
+    display: inline-block;
+    float: left;
+    color: #FFF;
+    line-height: 1em;
+    text-decoration: none !important;
+    white-space: nowrap;
+    margin: 0 5px 5px 0;
+    padding: 7px 10px;
+    background: #31ac97;
+    border-radius: 2px;
+    overflow: hidden;
+    transition: background-color 250ms linear;
+}
+.categories span {
+    display: inline;
+    font-weight: bold;
+    color: inherit !important;
+    margin: 0 -10px 0 10px;
+    padding: 7px 10px;
+    background-image: url('../images/bg-white-20.png');
+    border-radius: 0 2px 2px 0;
+}
+
+/**
+    Bottom Content
+*/
+.bottom-content {
+    margin-top: 20px;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto;
+    /* Negative indent footer by its height */
+    margin: 0 auto -60px;
+    /* Pad bottom by footer height */
+    padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+    margin-top: 20px;
+    height: 60px;
+    background-color: #80a7ff;
+}
+.footercontainer {
+    padding: 0 15px;
+}
+.footercontainer p {
+    margin-top: 20px;
+    color: white;
+    width: 50%;
+    float: left;
+}
+.footercontainer .connect {
+    float: right;
+    margin-top: 20px;
+}
+.footercontainer i {
+    padding-left: 10px;
+}
+
+#slideout {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    transition:all 0.8s ease-in-out;
+    -moz-transition:all 0.8s ease-in-out;
+    -o-transition:all 0.8s ease-in-out;
+    -webkit-transition:all 0.8s ease-in-out;
+}
+#slideout_inner {
+    position: fixed;
+    top: 60px;
+    left: -250px;
+    transition:all 0.8s ease-in-out;
+    -moz-transition:all 0.8s ease-in-out;
+    -o-transition:all 0.8s ease-in-out;
+    -webkit-transition:all 0.8s ease-in-out;
+}
+#slideout:hover  {
+    left: -250px;
+}
+#slideout:hover #slideout_inner {
+    left: -10px;
+}
+#slideout .vertical-text {
+    margin-left: 10px;
+    padding: 20px;
+    writing-mode:tb-rl;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -o-transform: rotate(90deg);
+    white-space:nowrap;
+    display:block;
+    bottom:0;
+    width:20px;
+    height:20px;
+}
+.vertical-text:hover {
+    cursor: pointer !important;
+}
+#slideout ul {
+    list-style-type: none;
+}
+#slideout a {
+    color: inherit;
 }
