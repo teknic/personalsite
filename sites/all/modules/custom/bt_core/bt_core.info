@@ -1,0 +1,4 @@
+name = BT Core
+description = Core related customizations
+core = 7.x
+package = ~BT
