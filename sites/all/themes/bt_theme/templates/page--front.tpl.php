@@ -129,5 +129,24 @@
 </div>
 
 <footer class="footer container">
-  <?php print render($page['footer']); ?>
+  <div class="row">
+    <div class="col-sm-4">
+      <?php echo $categories; ?>
+    </div>
+    <div class="col-sm-4">
+      <h2>Recent Posts</h2>
+      <?php echo $recent_posts; ?>
+    </div>
+    <div class="col-sm-4">
+      <h2></h2>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Modules</a></li>
+        <li><a href="#">Tutorials</a></li>
+        <li><a href="#">Resume</a></li>
+      </ul>
+    </div>
+  </div>
 </footer>
