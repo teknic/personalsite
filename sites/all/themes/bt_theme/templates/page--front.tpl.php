@@ -86,14 +86,9 @@
           <?php if (!empty($primary_nav)): ?>
             <?php print render($primary_nav); ?>
           <?php endif; ?>
-          <?php if (!empty($secondary_nav)): ?>
-            <?php print render($secondary_nav); ?>
-          <?php endif; ?>
-          <?php if (!empty($page['navigation'])): ?>
-            <?php print render($page['navigation']); ?>
-          <?php endif; ?>
         </nav>
       </div>
+      <?php print render($search); ?>
     <?php endif; ?>
   </div>
 </header>
@@ -114,19 +109,17 @@
       <div class="row">
         <div class="col-sm-3 round white">
           <h3>Modules</h3>
-          <p>Some modules that I've open sourced over the years.</p>
-<!--          <img src="/sites/all/themes/bt_theme/images/modules.png">-->
+          <p>Modules I've open sourced.</p>
           <div class="cta-icon"><i class="fa fa-tasks fa-8x"></i></div>
         </div>
         <div class="col-sm-3 round white">
           <h3>Projects</h3>
-          <p>Projects that I've personally worked on.</p>
-<!--          <img src="/sites/all/themes/bt_theme/images/projects.png">-->
+          <p>Projects that I've worked on.</p>
           <div class="cta-icon"><i class="fa fa-folder-open-o fa-8x"></i></div>
         </div>
         <div class="col-sm-3 round white">
           <h3>Tutorials</h3>
-          <p>How to's and Step-by-Step's.</p>
+          <p>How to's and step-by-step's.</p>
           <div class="cta-icon"><i class="fa fa-file-code-o fa-8x"></i></div>
         </div>
       </div>

@@ -3,32 +3,16 @@
  * remove this comment and start adding your styles to this file.
  */
 
+/**
+    Global changes
+*/
+
 body {
     background: #8cffb7
 }
 
-.navbar-default {
-    background: white !important;
-}
-
 .white {
     background: white;
-}
-
-.cta-section img {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.cta-section .cta-icon {
-    align: center;
-    text-align: center;
-    padding: 10px;
-}
-
-.cta-section h3 {
-    text-align: center;
 }
 
 .fa-10x {
@@ -47,10 +31,39 @@ body {
     margin-right: 35px;
 }
 
+@font-face {
+    font-family: 'CodePro'; /*a name to be used later*/
+    src: url('/sites/all/themes/bt_theme/fonts/Code_Pro_Demo-webfont.ttf'); /*URL to font*/
+}
+
+/**
+    Navigation bar.
+*/
+
+.navbar-default {
+    background: white !important;
+}
+
+#navbar a {
+    font-family: 'CodePro';
+}
+
+.navbar-nav li {
+    padding-top: 5px;
+}
+
+
+/**
+    Flexslider / homepage
+*/
+.panels-flexible-region-1-center {
+    width: 100% !important;
+}
+
 .view-blog-flexslider h2 {
     position: absolute;
-    top: 200px;
-    left: 0;
+    top: 50px;
+    right: 0;
     width: 100%;
 }
 
@@ -63,6 +76,34 @@ body {
     padding: 10px;
 }
 
-#navbar li {
-    margin: 0 10px 0 10px;
+/**
+ CTA section
+*/
+
+.cta-section img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.cta-section .cta-icon {
+    align: center;
+    text-align: center;
+    padding: 10px 10px 20px 10px;
+}
+
+.cta-section h3 {
+    text-align: center;
+}
+
+.cta-section p {
+    text-align: center;
+}
+
+/**
+    Search block form header
+*/
+#search-block-form {
+    margin-top: -45px !important;
+    padding-bottom: 10px;
 }

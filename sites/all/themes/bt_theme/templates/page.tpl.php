@@ -1,4 +1,4 @@
-page.tpl.php<?php
+<?php
 /**
  * @file
  * Default theme implementation to display a single Drupal page.
@@ -30,7 +30,7 @@ page.tpl.php<?php
  * Navigation:
  * - $main_menu (array): An array containing the Main menu links for the
  *   site, if they have been configured.
- * - $secondary_menu (array): An array containing the Secondary menu links for
+ * - $sidebar_second_menu (array): An array containing the Secondary menu links for
  *   the site, if they have been configured.
  * - $breadcrumb: The breadcrumb trail for the current page.
  *
