@@ -226,6 +226,10 @@ body {
     -o-transition:all 0.8s ease-in-out;
     -webkit-transition:all 0.8s ease-in-out;
 }
+#slideout_inner li {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
 #slideout:hover  {
     left: -50px;
 }
@@ -253,4 +257,11 @@ body {
 }
 #slideout a {
     color: inherit;
+}
+
+div.codeblock {
+    padding: 5px;
+    border: 1px solid #CCC;
+    background-color: #f6f6f2;
+    margin-bottom: .5em;
 }
