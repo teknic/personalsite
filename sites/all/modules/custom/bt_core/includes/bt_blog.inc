@@ -1,27 +1,14 @@
 <?php
 
 /**
- *  Implements hook_menu().
+ * Handles all the blog related functionality
  */
-function bt_blog_menu() {
-  $items = array();
-
-  $items['blog'] = array(
-    'title' => 'Blog',
-    'description' => 'List of blogs',
-    'page callback' => 'bt_blog_list',
-    'access arguments' => array('access content'),
-    'type' => MENU_CALLBACK,
-  );
-
-  return $items;
-}
 
 /**
  * Lists all blogs with pager.
  */
 function bt_blog_list() {
-  drupal_add_css(drupal_get_path('module', 'bt_blog') . '/css/bt_blog.css');
+  drupal_add_css(drupal_get_path('module', 'bt_core') . '/css/blog/bt_blog.css');
   if ($cached = cache_get('blog_listing')) {
     return $cached->data;
   }
@@ -65,28 +52,4 @@ SQL;
   $output = theme('bt_blog_list', array('blogs' => $blogs));
   cache_set('blog_listing', $output);
   return $output;
-}
-
-/**
- *  Implements hook_theme().
- */
-function bt_blog_theme($existing, $type, $theme, $path) {
-  $items = array();
-
-  $items['bt_blog_list'] = array(
-    'variables' => array('blogs' => NULL),
-    'template' => 'blogs',
-    'path' => drupal_get_path('module', 'bt_blog') . '/templates',
-  );
-
-  return $items;
-}
-
-/**
- *  Implements hook_preprocess_HOOK().
- */
-function bt_blog_preprocess_page(&$variables) {
-  if (arg(0) == 'blog') {
-    $variables['page_description'] = t('Helpful blogs about development and sometimes random rants');
-  }
 }

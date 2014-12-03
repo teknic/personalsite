@@ -1,4 +1,0 @@
-name = BT Blog
-description = Blog related customizations
-core = 7.x
-package = ~BT

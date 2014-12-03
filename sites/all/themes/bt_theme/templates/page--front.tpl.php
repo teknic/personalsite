@@ -104,26 +104,20 @@
       <div class="cta-section container round">
         <div class="row">
           <div class="col-sm-3 round white">
-            <h3>Modules</h3>
-
+            <a href="/open-source"><h3>Modules</h3></a>
             <p>Modules I've open sourced.</p>
-
-            <div class="cta-icon"><i class="fa fa-tasks fa-8x"></i></div>
+            <a href="/modules"><div class="cta-icon"><i class="fa fa-tasks fa-8x"></i></div></a>
           </div>
           <div class="col-sm-3 round white">
-            <h3>Projects</h3>
-
+            <a href="/projects"><h3>Projects</h3></a>
             <p>Projects that I've worked on.</p>
-
-            <div class="cta-icon"><i class="fa fa-folder-open-o fa-8x"></i>
+            <a href="/modules"><div class="cta-icon"><i class="fa fa-folder-open-o fa-8x"></i></a>
             </div>
           </div>
           <div class="col-sm-3 round white">
-            <h3>Tutorials</h3>
-
+            <a href="/tutorials"><h3>Tutorials</h3></a>
             <p>How to's and step-by-step's.</p>
-
-            <div class="cta-icon"><i class="fa fa-file-code-o fa-8x"></i></div>
+            <a href="/modules"><div class="cta-icon"><i class="fa fa-file-code-o fa-8x"></i></div></a>
           </div>
         </div>
       </div>

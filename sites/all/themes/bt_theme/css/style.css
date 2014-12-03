@@ -55,11 +55,18 @@ body {
     -moz-border-radius: 5px;
 }
 .navbar-nav li:hover {
-    background-color: #80a7ff;
+    background-color: #6cff85;
+}
+.navbar-nav a .active {
+    background-color: #6cff85 !important;
+}
+.navbar-nav li .active {
+    background-color: #6cff85 !important;
 }
 .navbar-header a {
     color: inherit;
 }
+
 
 #skip-link {
     margin: 0;

@@ -5,6 +5,33 @@
  */
 
 /**
+ *  Implements hook_menu().
+ */
+function bt_core_menu() {
+  $items = array();
+
+  $items['blog'] = array(
+    'title' => 'Blog',
+    'description' => 'List of blogs',
+    'page callback' => 'bt_blog_list',
+    'access arguments' => array('access content'),
+    'file' => 'includes/bt_blog.inc',
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['open-source'] = array(
+    'title' => 'Modules',
+    'description' => 'List of modules',
+    'page callback' => 'bt_module_list',
+    'file' => 'includes/bt_module.inc',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
  *  Implements hook_preprocess_HOOK().
  */
 function bt_core_preprocess_page(&$variables) {
@@ -24,6 +51,14 @@ function bt_core_preprocess_page(&$variables) {
 
   if (arg(0) == 'about') {
     $variables['page_description'] = t("I told you, you didn't want to know but, now you know.");
+  }
+
+  if (arg(0) == 'blog') {
+    $variables['page_description'] = t('Helpful blogs about development and sometimes random rants');
+  }
+
+  if (arg(0) == 'open-source') {
+    $variables['page_description'] = t('Open source modules for everyone!');
   }
 }
 
@@ -61,6 +96,18 @@ function bt_core_theme($existing, $type, $theme, $path) {
     'variables' => array('terms' => NULL),
     'template' => 'categories',
     'path' => drupal_get_path('module', 'bt_core') . '/templates',
+  );
+
+  $items['bt_blog_list'] = array(
+    'variables' => array('blogs' => NULL),
+    'template' => 'blogs',
+    'path' => drupal_get_path('module', 'bt_core') . '/templates/blog',
+  );
+
+  $items['bt_module_list'] = array(
+    'variables' => array('modules' => NULL),
+    'template' => 'modules',
+    'path' => drupal_get_path('module', 'bt_core') . '/templates/modules',
   );
 
   return $items;
