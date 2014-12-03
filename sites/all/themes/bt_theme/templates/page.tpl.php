@@ -106,7 +106,12 @@
         <?php if (!empty($breadcrumb)): print $breadcrumb; endif; ?>
         <a id="main-content"></a>
         <?php if (!empty($title)): ?>
-          <h1 class="page-header"><?php print $title; ?></h1>
+          <div class="page-info">
+            <h1 class="page-header"><?php print $title; ?></h1>
+            <?php if (isset($page_description)): ?>
+            <div class="page-description"><?php echo $page_description; ?></div>
+            <?php endif; ?>
+          </div>
         <?php endif; ?>
         <?php print $messages; ?>
         <?php if (!empty($tabs)): ?>

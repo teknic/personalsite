@@ -21,10 +21,15 @@ function bt_blog_menu() {
  * Lists all blogs with pager.
  */
 function bt_blog_list() {
-  // select image (image style), title, body (trimmed), tags, created date
+  drupal_add_css(drupal_get_path('module', 'bt_blog') . '/css/bt_blog.css');
+  if ($cached = cache_get('blog_listing')) {
+    return $cached->data;
+  }
+
   $sql  = <<<SQL
     SELECT n.nid, n.title, n.created,
       b.body_value as body,
+      ttd.tid as tid,
       ttd.name as tags,
       i.field_blog_image_fid as image,
       fm.uri as uri
@@ -41,24 +46,25 @@ SQL;
 
   $blogs = array();
   $result = db_query($sql);
-  $image_style_settings = array('style_name' => 'blog_thumbnail_image');
   foreach ($result as $row) {
     if (isset($blogs[$row->nid])) {
-      $blogs[$row->nid]['tags'][] = $row->tags;
+      $blogs[$row->nid]['tags'][$row->tid]['name'] = $row->tags;
+      $blogs[$row->nid]['tags'][$row->tid]['url'] = drupal_get_path_alias('taxonomy/term/' . $row->tid);
     }
     else {
       $blogs[$row->nid] = (array) $row;
-      $image_style_settings['path'] = $row->uri;
-      $blogs[$row->nid]['image_style'] = theme('image_style', $image_style_settings);
+      $blogs[$row->nid]['image_style'] = image_style_url('blog_thumbnail_image', $row->uri);
       $blogs[$row->nid]['tags'] = array();
-      $blogs[$row->nid]['tags'][] = $row->tags;
+      $blogs[$row->nid]['tags'][$row->tid]['name'] = $row->tags;
+      $blogs[$row->nid]['tags'][$row->tid]['url'] = drupal_get_path_alias('taxonomy/term/' . $row->tid);
       $blogs[$row->nid]['url'] = drupal_get_path_alias('node/' . $row->nid);
       $blogs[$row->nid]['display_date'] = date('M d Y', $row->created);
     }
   }
 
-  drupal_add_css(drupal_get_path('module', 'bt_blog') . '/css/bt_blog.css');
-  return theme('bt_blog_list', array('blogs' => $blogs));
+  $output = theme('bt_blog_list', array('blogs' => $blogs));
+  cache_set('blog_listing', $output);
+  return $output;
 }
 
 /**
@@ -74,4 +80,13 @@ function bt_blog_theme($existing, $type, $theme, $path) {
   );
 
   return $items;
+}
+
+/**
+ *  Implements hook_preprocess_HOOK().
+ */
+function bt_blog_preprocess_page(&$variables) {
+  if (arg(0) == 'blog') {
+    $variables['page_description'] = t('Helpful blogs about development and sometimes random rants');
+  }
 }

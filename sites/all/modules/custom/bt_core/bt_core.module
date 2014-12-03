@@ -21,6 +21,10 @@ function bt_core_preprocess_page(&$variables) {
   $view->pre_execute();
   $view->execute();
   $variables['recent_posts'] = $view->render('block');
+
+  if (arg(0) == 'about') {
+    $variables['page_description'] = t("I told you, you didn't want to know but, now you know.");
+  }
 }
 
 /**
