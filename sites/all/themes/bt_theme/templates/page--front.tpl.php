@@ -76,8 +76,8 @@
 
 <div class="wrap">
 
-  <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
-    <div class="container">
+  <header id="navbar" role="navigation" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
       <div class="navbar-header">
         <a href="/"><i class="pull-left fa fa-html5 fa-4x"></i></a>
       </div>
