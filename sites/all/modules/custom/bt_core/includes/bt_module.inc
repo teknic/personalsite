@@ -14,14 +14,12 @@ function bt_module_list() {
   $sql  = <<<SQL
     SELECT n.nid, n.title, n.created,
       b.body_value as body,
-      i.field_module_image_fid as image,
+      i.field_module_icon_value as icon,
       ttd.tid as tid,
-      ttd.name as tags,
-      fm.uri as uri
+      ttd.name as tags
     FROM {node} n
       JOIN {field_data_body} b ON n.nid = b.entity_id AND b.bundle = 'module'
-      JOIN {field_data_field_module_image} i ON n.nid = i.entity_id AND i.bundle = 'module'
-      JOIN {file_managed} fm ON i.field_module_image_fid = fm.fid
+      JOIN {field_data_field_module_icon} i ON n.nid = i.entity_id AND i.bundle = 'module'
       JOIN {taxonomy_index} ti ON n.nid = ti.nid
       JOIN {taxonomy_term_data} ttd ON ti.tid = ttd.tid
     WHERE
@@ -38,12 +36,15 @@ SQL;
     }
     else {
       $modules[$row->nid] = (array) $row;
-      $modules[$row->nid]['image_style'] = image_style_url('module_thumbnail_image', $row->uri);
       $modules[$row->nid]['tags'] = array();
       $modules[$row->nid]['tags'][$row->tid]['name'] = $row->tags;
       $modules[$row->nid]['tags'][$row->tid]['url'] = drupal_get_path_alias('taxonomy/term/' . $row->tid);
       $modules[$row->nid]['url'] = drupal_get_path_alias('node/' . $row->nid);
       $modules[$row->nid]['display_date'] = date('M d Y', $row->created);
+    }
+
+    if (strpos($row->tags, 'Drupal') !== FALSE) {
+      $modules[$row->nid]['card_icon'] = '<i class="fa fa-drupal fa-3x"></i>';
     }
   }
 

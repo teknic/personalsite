@@ -107,6 +107,9 @@
         <a id="main-content"></a>
         <?php if (!empty($title)): ?>
           <div class="page-info">
+            <?php if (isset($page_icon)): ?>
+              <div class="page-icon"><?php echo $page_icon; ?></div>
+            <?php endif; ?>
             <h1 class="page-header"><?php print $title; ?></h1>
             <?php if (isset($page_description)): ?>
             <div class="page-description"><?php echo $page_description; ?></div>

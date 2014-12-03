@@ -106,7 +106,7 @@
           <div class="col-sm-3 round white">
             <a href="/open-source"><h3>Modules</h3></a>
             <p>Modules I've open sourced.</p>
-            <a href="/modules"><div class="cta-icon"><i class="fa fa-tasks fa-8x"></i></div></a>
+            <a href="/open-source"><div class="cta-icon"><i class="fa fa-tasks fa-8x"></i></div></a>
           </div>
           <div class="col-sm-3 round white">
             <a href="/projects"><h3>Projects</h3></a>

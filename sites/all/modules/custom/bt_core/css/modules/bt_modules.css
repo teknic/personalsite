@@ -22,7 +22,7 @@
 .grid-content {
     background: #b2c3ff;
     padding: 20px 20px 50px;
-    min-height: 170px;
+    min-height: 140px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom: 2px solid #DDD;
@@ -59,4 +59,11 @@
 }
 .grid {
     width: 100%;
+}
+.grid-content i {
+    float:right;
+}
+.grid-content .icon {
+    float:left;
+    padding-right: 20px;
 }

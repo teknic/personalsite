@@ -28,6 +28,15 @@ function bt_core_menu() {
     'type' => MENU_CALLBACK,
   );
 
+  $items['tutorials'] = array(
+    'title' => 'Tutorials',
+    'description' => 'List of tutorials',
+    'page callback' => 'bt_tutorial_list',
+    'file' => 'includes/bt_tutorial.inc',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
   return $items;
 }
 
@@ -58,7 +67,13 @@ function bt_core_preprocess_page(&$variables) {
   }
 
   if (arg(0) == 'open-source') {
+    $variables['page_icon'] = '<i class="fa fa-tasks fa-8x"></i>';
     $variables['page_description'] = t('Open source modules for everyone!');
+  }
+
+  if (arg(0) == 'tutorials') {
+    $variables['page_icon'] = '<i class="fa fa-file-code-o fa-8x"></i>';
+    $variables['page_description'] = t("Some examples, how to's and step-by-step's");
   }
 }
 
@@ -108,6 +123,12 @@ function bt_core_theme($existing, $type, $theme, $path) {
     'variables' => array('modules' => NULL),
     'template' => 'modules',
     'path' => drupal_get_path('module', 'bt_core') . '/templates/modules',
+  );
+
+  $items['bt_tutorial_list'] = array(
+    'variables' => array('tutorials' => NULL),
+    'template' => 'tutorials',
+    'path' => drupal_get_path('module', 'bt_core') . '/templates/tutorials',
   );
 
   return $items;
