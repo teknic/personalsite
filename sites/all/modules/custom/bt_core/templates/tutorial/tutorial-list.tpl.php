@@ -6,7 +6,7 @@
           <a href="/<?php echo $tutorial['url']; ?>" class="title">
             <span><?php echo $tutorial['title']; ?></span>
           </a>
-          <span><?php echo $tutorial['difficulty']; ?></span>
+          <span class="difficulty"><?php echo $tutorial['difficulty']; ?></span>
         </div>
       </div>
     </div>

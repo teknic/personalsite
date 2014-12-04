@@ -76,11 +76,13 @@ function bt_core_preprocess_page(&$variables) {
   $view->execute();
   $variables['recent_posts'] = $view->render('block');
 
-  if (arg(0) == 'about') {
-    $variables['page_description'] = t("I told you, you didn't want to know but, now you know.");
+  if (arg(0) == 'about' || (arg(0) == 'node' && arg(1) == 1)) {
+    $variables['page_icon'] = '<i class="fa fa-barcode fa-8x"></i>';
+    $variables['page_description'] = t("You have some splaining to do.");
   }
 
   if (arg(0) == 'blog') {
+    $variables['page_icon'] = '<i class="fa fa-database fa-8x"></i>';
     $variables['page_description'] = t('Helpful blogs about development and sometimes random rants');
   }
 
@@ -138,25 +140,56 @@ function bt_core_theme($existing, $type, $theme, $path) {
 
   $items['bt_blog_list'] = array(
     'variables' => array('blogs' => NULL),
-    'template' => 'blogs',
+    'template' => 'blog-list',
     'path' => drupal_get_path('module', 'bt_core') . '/templates/blog',
   );
 
   $items['bt_module_list'] = array(
     'variables' => array('modules' => NULL),
-    'template' => 'modules',
-    'path' => drupal_get_path('module', 'bt_core') . '/templates/modules',
+    'template' => 'module-list',
+    'path' => drupal_get_path('module', 'bt_core') . '/templates/module',
   );
 
   $items['bt_tutorial_list'] = array(
     'variables' => array('tutorials' => NULL),
-    'template' => 'tutorials',
-    'path' => drupal_get_path('module', 'bt_core') . '/templates/tutorials',
+    'template' => 'tutorial-list',
+    'path' => drupal_get_path('module', 'bt_core') . '/templates/tutorial',
   );
 
   $items['bt_resume_page'] = array(
     'template' => 'resume',
     'path' => drupal_get_path('module', 'bt_core') . '/templates/resume',
+  );
+
+  /** Node TPLs */
+  $items['node__blog'] = array(
+    'render element' => 'elements',
+    'path' => drupal_get_path('module', 'bt_core') . '/templates/blog',
+    'template' => 'node--blog',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_node',
+    ),
+  );
+
+  $items['node__module'] = array(
+    'render element' => 'elements',
+    'path' => drupal_get_path('module', 'bt_core') . '/templates/module',
+    'template' => 'node--module',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_node',
+    ),
+  );
+
+  $items['node__tutorial'] = array(
+    'render element' => 'elements',
+    'path' => drupal_get_path('module', 'bt_core') . '/templates/tutorial',
+    'template' => 'node--tutorial',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_node',
+    ),
   );
 
   return $items;

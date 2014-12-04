@@ -6,7 +6,7 @@
           <div class="icon"><?php echo $module['icon']; ?></div>
           <div class="title"><h3><a href="/<?php echo $module['url']; ?>"><?php echo $module['title']; ?></a></h3></div>
           <?php if (isset($module['card_icon'])): ?>
-            <?php echo $module['card_icon']; ?>
+            <div class="card-icon"><?php echo $module['card_icon']; ?></div>
           <?php endif; ?>
         </div>
         <div class="grid-bottom">
