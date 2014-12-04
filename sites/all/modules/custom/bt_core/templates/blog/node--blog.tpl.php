@@ -83,7 +83,16 @@
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <div class="content"<?php print $content_attributes; ?>>
-    <?php echo $blog_content['image']; ?>
+    <div class="img-container">
+      <?php echo $blog_content['image']; ?>
+      <h2><span><?php echo $title; ?></h2></div>
+      <h4><span><?php echo $blog_content['sub_heading']; ?></span></h4>
+      <span class="author"><?php echo $blog_content['author']; ?></span>
+      <span class="created"><?php echo $blog_content['created_date']; ?></span>
+      <?php foreach($blog_content['tags'] as $tag): ?>
+        <a href="<?php echo $tag['url']; ?>"><?php echo $tag['name']; ?></a>
+      <?php endforeach; ?>
+    </div>
     <?php echo $blog_content['body']; ?>
     <?php
     /**
