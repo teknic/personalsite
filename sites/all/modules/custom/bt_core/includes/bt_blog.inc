@@ -53,3 +53,25 @@ SQL;
   cache_set('blog_listing', $output);
   return $output;
 }
+
+/**
+ * Preprocess the content type for correct display.
+ *
+ * @param $variables
+ */
+function bt_blog_preprocess_blog_type(&$variables) {
+  $image = render($variables['content']['field_blog_image']);
+  $body = render($variables['content']['body']);
+  $variables['blog_content']['image'] = $image;
+  $variables['blog_content']['body'] = $body;
+
+  /**
+   *       Print image with title over top
+  Possibly have a subtitle as well
+  Have Posted Date, Tags at top. Could use icons here. Could also include your name here
+  for example: Published by Brandon Tate.
+  Could have a view code button somehwere to link to github examples
+  Content itself would be WYSIWYG
+  Bottom of content can have related blogs view (scotch.io) example
+   */
+}

@@ -129,6 +129,18 @@
         <?php endif; ?>
       </section>
 
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <?php echo $categories; ?>
+          </div>
+          <div class="col-sm-6">
+            <h2>Recent Posts</h2>
+            <?php echo $recent_posts; ?>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -143,18 +155,6 @@
         <li><a href="#"><i class="fa fa-drupal fa-2x"></i></a></li>
         <li><a href="#"><i class="fa fa-youtube fa-2x"></i></a></li>
       </ul>
-    </div>
-  </div>
-
-  <div class="bottom-content container">
-    <div class="row">
-      <div class="col-sm-6">
-        <?php echo $categories; ?>
-      </div>
-      <div class="col-sm-6">
-        <h2>Recent Posts</h2>
-        <?php echo $recent_posts; ?>
-      </div>
     </div>
   </div>
 
