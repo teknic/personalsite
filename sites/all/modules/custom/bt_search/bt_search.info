@@ -1,5 +1,0 @@
-name = BT Search
-description = Search related functionality
-core = 7.x
-dependencies[] = search
-package = ~BT
