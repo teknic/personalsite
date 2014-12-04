@@ -37,6 +37,24 @@ function bt_core_menu() {
     'type' => MENU_CALLBACK,
   );
 
+  $items['resume'] = array(
+    'title' => 'Resume',
+    'description' => 'Resume Page',
+    'page callback' => 'bt_resume_page',
+    'file' => 'includes/bt_resume.inc',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['contact'] = array(
+    'title' => 'Contact',
+    'description' => 'Contact Page',
+    'page callback' => 'bt_contact_page',
+    'file' => 'includes/bt_contact.inc',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
   return $items;
 }
 
@@ -74,6 +92,11 @@ function bt_core_preprocess_page(&$variables) {
   if (arg(0) == 'tutorials') {
     $variables['page_icon'] = '<i class="fa fa-file-code-o fa-8x"></i>';
     $variables['page_description'] = t("Some examples, how to's and step-by-step's");
+  }
+
+  if (arg(0) == 'contact') {
+    $variables['page_icon'] = '<i class="fa fa-envelope fa-8x"></i>';
+    $variables['page_description'] = t("Got a question? Feel free to contact me.");
   }
 }
 
@@ -131,6 +154,11 @@ function bt_core_theme($existing, $type, $theme, $path) {
     'path' => drupal_get_path('module', 'bt_core') . '/templates/tutorials',
   );
 
+  $items['bt_resume_page'] = array(
+    'template' => 'resume',
+    'path' => drupal_get_path('module', 'bt_core') . '/templates/resume',
+  );
+
   return $items;
 }
 
@@ -142,3 +170,16 @@ function bt_core_preprocess_views_view_table(&$vars) {
     $vars['classes_array'][] = 'table table-striped';
   }
 }
+
+/**
+ * Implements hook_mail().
+ */
+function bt_core_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'bt_contact_page':
+      $message['subject'] = t(token_replace($params['subject'], $params));
+      $message['body'][] = t(token_replace($params['message'], $params));
+      break;
+  }
+}
+

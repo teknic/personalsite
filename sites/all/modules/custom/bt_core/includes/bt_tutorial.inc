@@ -15,14 +15,14 @@ function bt_tutorial_list() {
 
   $sql  = <<<SQL
     SELECT n.nid, n.title, n.created,
-      b.body_value as body,
+      b.field_body_value as body,
       ttd.tid as tid,
       ttd.name as tags,
       i.field_tutorial_image_fid as image,
       dl.field_difficulty_level_value as difficulty,
       fm.uri as uri
     FROM {node} n
-      JOIN {field_data_body} b ON n.nid = b.entity_id AND b.bundle = 'tutorial'
+      JOIN {field_data_field_body} b ON n.nid = b.entity_id AND b.bundle = 'tutorial'
       JOIN {field_data_field_tutorial_image} i ON n.nid = i.entity_id AND i.bundle = 'tutorial'
       JOIN {field_data_field_difficulty_level} dl ON n.nid = dl.entity_id AND dl.bundle = 'tutorial'
       JOIN {file_managed} fm ON i.field_tutorial_image_fid = fm.fid
@@ -48,7 +48,7 @@ SQL;
       $tutorials[$row->nid]['tags'][$row->tid]['url'] = drupal_get_path_alias('taxonomy/term/' . $row->tid);
       $tutorials[$row->nid]['url'] = drupal_get_path_alias('node/' . $row->nid);
       $tutorials[$row->nid]['display_date'] = date('M d Y', $row->created);
-      $tutorials[$row->nid]['difficulty'] = $row->difficulty;
+      $tutorials[$row->nid]['difficulty'] = ucfirst($row->difficulty);
     }
   }
 

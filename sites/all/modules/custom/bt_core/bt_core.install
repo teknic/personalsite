@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function bt_core_schema() {
+  $schema = array();
+  $schema['bt_core_contact_page'] = array(
+    'description' => 'Custom table to hold contact messages',
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'An auto increment id',
+      ),
+      'your_name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'The name provided',
+      ),
+      'your_email' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'The email provided',
+      ),
+      'subject' => array(
+        'type' => 'varchar',
+        'not null' => TRUE,
+        'length' => 255,
+        'description' => 'The subject of the message',
+      ),
+      'message' => array(
+        'description' => 'The message',
+        'type' => 'text',
+        'not null' => FALSE,
+        'size' => 'big',
+        'translatable' => TRUE,
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+
+  return $schema;
+}
