@@ -10,3 +10,6 @@
     width: 85%;
     padding-left: 100px;
 }
+.contact-form div.error {
+    background-color: inherit;
+}

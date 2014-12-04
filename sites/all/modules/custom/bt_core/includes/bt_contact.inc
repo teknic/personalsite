@@ -71,7 +71,7 @@ function bt_contact_form_submit($form, &$form_state) {
   $send = TRUE;
   $params['your_name'] = $form_state['values']['your_name'];
   $params['subject'] = $form_state['values']['subject'];
-  $params['message'] = $form_state['values']['message'];
+  $params['message'] = "From: " . $form_state['values']['your_name'] . ' <br />' . $form_state['values']['message'];
   $result = drupal_mail($module, $key, $to, $language, $params, $from, $send);
 
   // Save the message
@@ -81,5 +81,5 @@ function bt_contact_form_submit($form, &$form_state) {
     'subject' => $form_state['values']['subject'],
     'message' => $form_state['values']['message']
   );
-  drupal_write_record('bt_core_contact_page', $record, array('id'));
+  drupal_write_record('bt_core_contact_page', $record);
 }
