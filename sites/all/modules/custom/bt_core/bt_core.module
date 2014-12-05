@@ -1,5 +1,8 @@
 <?php
 
+define('BT_CORE_BLOG_PER_PAGE', 9);
+define('BT_CORE_TUTORIAL_PER_PAGE', 9);
+
 /**
  * Hold all the core related customizations.
  */
@@ -118,6 +121,44 @@ function bt_core_preprocess_node(&$variables) {
     module_load_include('inc', 'bt_core', '/includes/bt_blog');
     bt_blog_preprocess_blog_type($variables);
   }
+
+  if ($variables['node']->type == 'module') {
+    module_load_include('inc', 'bt_core', '/includes/bt_module');
+    bt_module_preprocess_module_type($variables);
+  }
+
+  if ($variables['node']->type == 'tutorial') {
+    module_load_include('inc', 'bt_core', '/includes/bt_tutorial');
+    bt_tutorial_preprocess_tutorial_type($variables);
+  }
+}
+
+/**
+ *  Implements hook_node_insert().
+ *
+ *  Set a node count so that we can check this instead of a SQL query.
+ */
+function bt_core_node_insert($node) {
+  bt_core_set_node_count($node);
+}
+
+/**
+ *  Implements hook_node_delete().
+ *
+ *  Set a node count so that we can check this instead of a SQL query.
+ */
+function bt_core_node_delete($node) {
+  bt_core_set_node_count($node);
+}
+
+/**
+ * Sets a variable for a module types node count.
+ *
+ * @param $node
+ */
+function bt_core_set_node_count($node) {
+  $count = db_query("SELECT COUNT(nid) AS count FROM {node} WHERE type = ':type' AND status = 1", array(':type', $node->type))->fetchField();
+  variable_set($node->type . '_total_count', $count);
 }
 
 /**
@@ -132,7 +173,8 @@ function bt_core_categories() {
   $sql  = "SELECT t.tid, COUNT(t.tid) AS used FROM {taxonomy_term_data} t ";
   $sql .= "LEFT JOIN {taxonomy_index} ti ON t.tid = ti.tid ";
   $sql .= "WHERE t.vid = :vid ";
-  $sql .= "GROUP BY t.tid";
+  $sql .= "GROUP BY t.tid ";
+//  $sql .= "HAVING COUNT(t.tid) > 1";
   $result = db_query($sql, array(':vid' => $vocab->vid));
   $terms = array();
   foreach ($result as $row) {

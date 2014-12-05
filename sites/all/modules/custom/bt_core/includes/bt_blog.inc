@@ -9,7 +9,11 @@
  */
 function bt_blog_list() {
   drupal_add_css(drupal_get_path('module', 'bt_core') . '/css/blog/bt_blog.css');
-  if ($cached = cache_get('blog_listing')) {
+  $per_page = BT_CORE_BLOG_PER_PAGE;
+  $total = variable_get('blog_total_count', 0);
+  $current_page = pager_default_initialize($total, $per_page);
+  // Check cache, return if you got it.
+  if ($cached = cache_get('blog_listing_page_' . $current_page)) {
     return $cached->data;
   }
 
@@ -28,31 +32,46 @@ function bt_blog_list() {
       JOIN {taxonomy_term_data} ttd ON ti.tid = ttd.tid
     WHERE
       n.type = 'blog'
-    ORDER BY n.created
+    ORDER BY n.created DESC
 SQL;
 
   $blogs = array();
   $result = db_query($sql);
+  ($current_page == 0 ? $start = 0 : $start = $current_page * $per_page);
+  $row_count = 0; $last_row_created = 0;
   foreach ($result as $row) {
-    if (isset($blogs[$row->nid])) {
-      $blogs[$row->created]['tags'][$row->tid]['name'] = $row->tags;
-      $blogs[$row->created]['tags'][$row->tid]['url'] = drupal_get_path_alias('taxonomy/term/' . $row->tid);
+    if ($start == 0 || $row_count >= $start) {
+      if (isset($blogs[$row->created])) {
+        $blogs[$row->created]['tags'][$row->tid]['name'] = $row->tags;
+        $blogs[$row->created]['tags'][$row->tid]['url'] = drupal_get_path_alias('taxonomy/term/' . $row->tid);
+      }
+      else {
+        $blogs[$row->created] = (array) $row;
+        $blogs[$row->created]['image_style'] = image_style_url('blog_thumbnail_image', $row->uri);
+        $blogs[$row->created]['tags'] = array();
+        $blogs[$row->created]['tags'][$row->tid]['name'] = $row->tags;
+        $blogs[$row->created]['tags'][$row->tid]['url'] = drupal_get_path_alias('taxonomy/term/' . $row->tid);
+        $blogs[$row->created]['url'] = drupal_get_path_alias('node/' . $row->nid);
+        $blogs[$row->created]['display_date'] = date('M d Y', $row->created);
+      }
     }
-    else {
-      $blogs[$row->created] = (array) $row;
-      $blogs[$row->created]['image_style'] = image_style_url('blog_thumbnail_image', $row->uri);
-      $blogs[$row->created]['tags'] = array();
-      $blogs[$row->created]['tags'][$row->tid]['name'] = $row->tags;
-      $blogs[$row->created]['tags'][$row->tid]['url'] = drupal_get_path_alias('taxonomy/term/' . $row->tid);
-      $blogs[$row->created]['url'] = drupal_get_path_alias('node/' . $row->nid);
-      $blogs[$row->created]['display_date'] = date('M d Y', $row->created);
+
+    // Only count unique items.
+    if ($row->created != $last_row_created) {
+      $last_row_created = $row->created;
+      $row_count++;
+    }
+
+    // Stop if the count is equal to the pager.
+    if (count($blogs) == $per_page) {
+      break;
     }
   }
 
-  krsort($blogs);
-
   $output = theme('bt_blog_list', array('blogs' => $blogs));
-  cache_set('blog_listing', $output);
+  // Magic happens here. A pager appears.
+  $output .= theme('pager', array('quantity', $total));
+  cache_set('blog_listing_page_' . $current_page, $output);
   return $output;
 }
 

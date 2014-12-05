@@ -82,31 +82,40 @@
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  <?php print $user_picture; ?>
-
-  <?php print render($title_prefix); ?>
-  <?php if (!$page): ?>
-    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
-  <?php endif; ?>
-  <?php print render($title_suffix); ?>
-
-  <?php if ($display_submitted): ?>
-    <div class="submitted">
-      <?php print $submitted; ?>
-    </div>
-  <?php endif; ?>
-
   <div class="content"<?php print $content_attributes; ?>>
+    <div class="header">
+      <div class="img-container">
+        <?php echo $tutorial_content['image']; ?>
+      </div>
+      <div class="content-header">
+        <div class="author-created">
+          <span class="author"><i class="fa fa-pencil-square-o"></i><?php echo $tutorial_content['author']; ?></span>
+          <span class="created"><i class="fa fa-calendar-o"></i><?php echo $tutorial_content['created_date']; ?></span>
+        </div>
+        <h1><span><?php echo $title; ?></h1>
+        <h4><span><?php echo $tutorial_content['sub_heading']; ?></span></h4>
+        <div class="tags">
+          <?php foreach($tutorial_content['tags'] as $tag): ?>
+            <a href="<?php echo $tag['url']; ?>"><?php echo $tag['name']; ?></a>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
+    <hr class="hr-style"/>
+    <div class="content-body">
+      <?php echo $tutorial_content['body']; ?>
+    </div>
     <?php
-    // We hide the comments and links now so that we can render them later.
-    hide($content['comments']);
-    hide($content['links']);
-    print render($content);
+    /**
+    Print image with title over top
+    Possibly have a subtitle as well
+    Have Posted Date, Tags at top. Could use icons here. Could also include your name here
+    for example: Published by Brandon Tate.
+    Could have a view code button somehwere to link to github examples
+    Content itself would be WYSIWYG
+    Bottom of content can have related blogs view (scotch.io) example
+     */
     ?>
   </div>
-
-  <?php print render($content['links']); ?>
-
-  <?php print render($content['comments']); ?>
 
 </div>

@@ -1,13 +1,6 @@
 .node-blog {
     background: white;
 }
-.node-blog .field-blog-image {
-    /*float: right;*/
-    /*padding: 10px 10px 10px 10px;*/
-    /*border-radius: 5px;*/
-    /*-webkit-border-radius: 5px;*/
-    /*-moz-border-radius: 5px;*/
-}
 .node-blog .tags {
     position: absolute;
     top: 0;
