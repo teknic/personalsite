@@ -82,6 +82,9 @@ function bt_core_preprocess_page(&$variables) {
   }
 
   if (arg(0) == 'blog') {
+    if ($_GET['q'] == 'blog') {
+      unset($variables['theme_hook_suggestions'][0]);
+    }
     $variables['page_icon'] = '<i class="fa fa-database fa-8x"></i>';
     $variables['page_description'] = t('Helpful blogs about development and sometimes random rants');
   }

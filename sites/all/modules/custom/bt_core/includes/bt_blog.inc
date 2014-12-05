@@ -35,19 +35,21 @@ SQL;
   $result = db_query($sql);
   foreach ($result as $row) {
     if (isset($blogs[$row->nid])) {
-      $blogs[$row->nid]['tags'][$row->tid]['name'] = $row->tags;
-      $blogs[$row->nid]['tags'][$row->tid]['url'] = drupal_get_path_alias('taxonomy/term/' . $row->tid);
+      $blogs[$row->created]['tags'][$row->tid]['name'] = $row->tags;
+      $blogs[$row->created]['tags'][$row->tid]['url'] = drupal_get_path_alias('taxonomy/term/' . $row->tid);
     }
     else {
-      $blogs[$row->nid] = (array) $row;
-      $blogs[$row->nid]['image_style'] = image_style_url('blog_thumbnail_image', $row->uri);
-      $blogs[$row->nid]['tags'] = array();
-      $blogs[$row->nid]['tags'][$row->tid]['name'] = $row->tags;
-      $blogs[$row->nid]['tags'][$row->tid]['url'] = drupal_get_path_alias('taxonomy/term/' . $row->tid);
-      $blogs[$row->nid]['url'] = drupal_get_path_alias('node/' . $row->nid);
-      $blogs[$row->nid]['display_date'] = date('M d Y', $row->created);
+      $blogs[$row->created] = (array) $row;
+      $blogs[$row->created]['image_style'] = image_style_url('blog_thumbnail_image', $row->uri);
+      $blogs[$row->created]['tags'] = array();
+      $blogs[$row->created]['tags'][$row->tid]['name'] = $row->tags;
+      $blogs[$row->created]['tags'][$row->tid]['url'] = drupal_get_path_alias('taxonomy/term/' . $row->tid);
+      $blogs[$row->created]['url'] = drupal_get_path_alias('node/' . $row->nid);
+      $blogs[$row->created]['display_date'] = date('M d Y', $row->created);
     }
   }
+
+  krsort($blogs);
 
   $output = theme('bt_blog_list', array('blogs' => $blogs));
   cache_set('blog_listing', $output);

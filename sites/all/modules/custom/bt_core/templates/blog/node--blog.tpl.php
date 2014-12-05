@@ -83,17 +83,28 @@
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <div class="content"<?php print $content_attributes; ?>>
-    <div class="img-container">
-      <?php echo $blog_content['image']; ?>
-      <h2><span><?php echo $title; ?></h2></div>
-      <h4><span><?php echo $blog_content['sub_heading']; ?></span></h4>
-      <span class="author"><?php echo $blog_content['author']; ?></span>
-      <span class="created"><?php echo $blog_content['created_date']; ?></span>
-      <?php foreach($blog_content['tags'] as $tag): ?>
-        <a href="<?php echo $tag['url']; ?>"><?php echo $tag['name']; ?></a>
-      <?php endforeach; ?>
+    <div class="header">
+      <div class="img-container">
+        <?php echo $blog_content['image']; ?>
+      </div>
+      <div class="content-header">
+        <div class="author-created">
+          <span class="author"><i class="fa fa-pencil-square-o"></i><?php echo $blog_content['author']; ?></span>
+          <span class="created"><i class="fa fa-calendar-o"></i><?php echo $blog_content['created_date']; ?></span>
+        </div>
+        <h1><span><?php echo $title; ?></h1>
+        <h4><span><?php echo $blog_content['sub_heading']; ?></span></h4>
+        <div class="tags">
+        <?php foreach($blog_content['tags'] as $tag): ?>
+          <a href="<?php echo $tag['url']; ?>"><?php echo $tag['name']; ?></a>
+        <?php endforeach; ?>
+        </div>
+      </div>
     </div>
-    <?php echo $blog_content['body']; ?>
+    <hr class="hr-style"/>
+    <div class="content-body">
+      <?php echo $blog_content['body']; ?>
+    </div>
     <?php
     /**
       Print image with title over top
