@@ -140,18 +140,14 @@
     </div>
   </div>
 
-  <div id="slideout">
-    <h3 class="vertical-text">Connect</h3>
-    <div id="slideout_inner">
-      <ul>
-        <li><a href="#"><i class="fa fa-github fa-2x"></i></a></li>
-        <li><a href="#"><i class="fa fa-twitter fa-2x"></i></a></li>
-        <li><a href="#"><i class="fa fa-stack-overflow fa-2x"></i></a></li>
-        <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
-        <li><a href="#"><i class="fa fa-drupal fa-2x"></i></a></li>
-        <li><a href="#"><i class="fa fa-youtube fa-2x"></i></a></li>
-      </ul>
-    </div>
+  <div class="sticky-container">
+    <ul class="sticky">
+      <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/dp1.png" /><p>Drupal</p></a></li>
+      <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/tw1.png" /><p>Twitter</p></a></li>
+      <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/gb1.png" /><p>Github</p></a></li>
+      <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/li1.png" /><p>Linkedin</p></a></li>
+      <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/yt1.png" /><p>Youtube</p></a></li>
+    </ul>
   </div>
 
 </div>
