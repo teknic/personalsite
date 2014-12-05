@@ -77,7 +77,7 @@
 <div class="wrap">
 
   <header id="navbar" role="navigation" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+    <div class="container">
       <div class="navbar-header">
         <a href="/"><i class="pull-left fa fa-html5 fa-4x"></i></a>
       </div>
