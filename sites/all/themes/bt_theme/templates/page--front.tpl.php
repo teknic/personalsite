@@ -97,7 +97,7 @@
   <div class="main-container container">
     <div class="row">
       <!-- Content -->
-      <section<?php print $content_column_class; ?>>
+      <section class="col-sm-12 homepage-section">
         <?php echo $homepage_carousel; ?>
       </section>
       <!-- CTAs -->
