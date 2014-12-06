@@ -161,6 +161,7 @@ SQL;
   $items = array();
   foreach ($result as $row) {
     $items[$row->nid] = $row;
+    $items[$row->nid]->url = drupal_get_path_alias('node/' . $row->nid);
     $items[$row->nid]->image_style = image_style_url('blog_flexslider_image', $row->uri);
   }
 

@@ -13,23 +13,13 @@ body {
     /* The html and body elements cannot have any padding or margin. */
 }
 body {
-    /* IE10 Consumer Preview */
-    background-image: -ms-linear-gradient(bottom, #949494 0%, #002F45 100%);
-
-    /* Mozilla Firefox */
-    background-image: -moz-linear-gradient(bottom, #949494 0%, #002F45 100%);
-
-    /* Opera */
-    background-image: -o-linear-gradient(bottom, #949494 0%, #002F45 100%);
-
-    /* Webkit (Safari/Chrome 10) */
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #949494), color-stop(1, #002F45));
-
-    /* Webkit (Chrome 11+) */
-    background-image: -webkit-linear-gradient(bottom, #949494 0%, #002F45 100%);
-
-    /* W3C Markup, IE10 Release Preview */
-    background-image: linear-gradient(to top, #949494 0%, #002F45 100%);
+    /*background-image: -ms-linear-gradient(bottom, #949494 0%, #002F45 100%);*/
+    /*background-image: -moz-linear-gradient(bottom, #949494 0%, #002F45 100%);*/
+    /*background-image: -o-linear-gradient(bottom, #949494 0%, #002F45 100%);*/
+    /*background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #949494), color-stop(1, #002F45));*/
+    /*background-image: -webkit-linear-gradient(bottom, #949494 0%, #002F45 100%);*/
+    /*background-image: linear-gradient(to top, #949494 0%, #002F45 100%);*/
+    /*background: #0A0A0B;*/
     padding-top: 70px;
 
 }
@@ -58,8 +48,12 @@ body {
     Navigation bar.
 */
 
+#navbar {
+    margin-bottom: 0px;
+}
 .navbar-default {
-    background: #80a7ff !important;
+    background: #0A0A0B; !important;
+    border: none;
 }
 #navbar a {
     font-family: 'CodePro';
@@ -174,6 +168,12 @@ body {
 /**
     Tag Cloud
 */
+.category-container {
+    margin-top: 20px;
+}
+.recent-posts-container {
+    margin-top: 20px;
+}
 .categories a {
     display: inline-block;
     float: left;

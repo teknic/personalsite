@@ -108,11 +108,6 @@
             <p>Modules I've open sourced.</p>
             <a href="/open-source"><div class="cta-icon"><i class="fa fa-tasks fa-8x"></i></div></a>
           </div>
-<!--          <div class="col-sm-3 round white">-->
-<!--            <a href="/projects"><h3>Projects</h3></a>-->
-<!--            <p>Projects that I've worked on.</p>-->
-<!--            <a href="/modules"><div class="cta-icon"><i class="fa fa-folder-open-o fa-8x"></i></a>-->
-<!--          </div>-->
           <div class="col-sm-3 round white">
             <a href="/blog"><h3>Blog</h3></a>
             <p>Occasionally informative</p>
@@ -129,10 +124,10 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="category-container col-sm-6">
           <?php echo $categories; ?>
         </div>
-        <div class="col-sm-6">
+        <div class="recent-posts-container col-sm-6">
           <h2>Recent Posts</h2>
           <?php echo $recent_posts; ?>
         </div>
