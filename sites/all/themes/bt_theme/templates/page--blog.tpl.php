@@ -88,8 +88,8 @@
               <?php print render($primary_nav); ?>
             <?php endif; ?>
           </nav>
+          <?php print render($search); ?>
         </div>
-        <?php print render($search); ?>
       <?php endif; ?>
     </div>
   </header>

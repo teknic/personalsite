@@ -134,13 +134,19 @@ function bt_core_homepage_carousel(&$variables) {
   drupal_add_js(drupal_get_path('theme', 'bt_theme') . '/slick/slick/slick.min.js');
   drupal_add_js(drupal_get_path('module', 'bt_core') . '/js/bt_core.homepage.js');
 
+  // Check cache, return if you got it.
+  if ($cached = cache_get('homepage_carousel')) {
+    $variables['homepage_carousel'] = $cached->data;
+  }
+
   // Get first five blog / tutorial content types.
   $sql = <<<SQL
     SELECT
       n.nid,
       n.title,
       bi.field_blog_image_fid as blog_image,
-      fm.uri as uri
+      fm.uri as uri,
+      fm.filename as filename
     FROM
       {node} n
     JOIN {field_data_field_blog_image} bi ON n.nid = bi.entity_id AND bi.bundle = 'blog'
@@ -159,6 +165,7 @@ SQL;
   }
 
   $output = theme('bt_homepage_carousel', array('items' => $items));
+  cache_set('homepage_carousel', $output);
   $variables['homepage_carousel'] = $output;
 }
 
