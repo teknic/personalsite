@@ -88,8 +88,8 @@
               <?php print render($primary_nav); ?>
             <?php endif; ?>
           </nav>
+          <?php print render($search); ?>
         </div>
-        <?php print render($search); ?>
       <?php endif; ?>
     </div>
   </header>
@@ -98,7 +98,7 @@
     <div class="row">
       <!-- Content -->
       <section<?php print $content_column_class; ?>>
-        <?php print render($page['content']); ?>
+        <?php echo $homepage_carousel; ?>
       </section>
       <!-- CTAs -->
       <div class="cta-section container round">

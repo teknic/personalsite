@@ -65,23 +65,30 @@ function bt_core_menu() {
  *  Implements hook_preprocess_HOOK().
  */
 function bt_core_preprocess_page(&$variables) {
+  // Add search box
   $page = search_api_page_load('search_api_page');
   $search = drupal_get_form('search_api_page_search_form_' . $page->machine_name, $page, NULL, TRUE);
   $search['keys_1']['#prefix'] = '<div class="input-group">';
   $search['keys_1']['#suffix'] = '<span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button></span></div>';
-  $search['#attributes']['class'][] = 'pull-right';
-  $search['#attributes']['class'][] = 'col-sm-3';
+  $search['#attributes']['class'][] = 'top-search pull-right col-sm-3';
   $search['submit_1']['#attributes']['class'][] = 'element-invisible';
   $variables['search'] = drupal_render($search);
 
+  // Add categories to footer
   $categories = bt_core_categories();
   $variables['categories'] = $categories;
 
+  // Add recent posts
   $view = views_get_view('recent_posts');
   $view->set_display('block');
   $view->pre_execute();
   $view->execute();
   $variables['recent_posts'] = $view->render('block');
+
+  // Add carousel
+  if (drupal_is_front_page()) {
+    bt_core_homepage_carousel($variables);
+  }
 
   if (arg(0) == 'about' || (arg(0) == 'node' && arg(1) == 1)) {
     $variables['page_icon'] = '<i class="fa fa-barcode fa-8x"></i>';
@@ -115,6 +122,44 @@ function bt_core_preprocess_page(&$variables) {
     // If the node type is "blog_madness" the template suggestion will be "page--blog-madness.tpl.php".
     $variables['theme_hook_suggestions'][] = 'page__'. $variables['node']->type;
   }
+}
+
+/**
+ * Homepage carousel.
+ *
+ * @param $variables
+ */
+function bt_core_homepage_carousel(&$variables) {
+  drupal_add_css(drupal_get_path('theme', 'bt_theme') . '/slick/slick/slick.css');
+  drupal_add_js(drupal_get_path('theme', 'bt_theme') . '/slick/slick/slick.min.js');
+  drupal_add_js(drupal_get_path('module', 'bt_core') . '/js/bt_core.homepage.js');
+
+  // Get first five blog / tutorial content types.
+  $sql = <<<SQL
+    SELECT
+      n.nid,
+      n.title,
+      bi.field_blog_image_fid as blog_image,
+      fm.uri as uri
+    FROM
+      {node} n
+    JOIN {field_data_field_blog_image} bi ON n.nid = bi.entity_id AND bi.bundle = 'blog'
+    JOIN {file_managed} fm ON bi.field_blog_image_fid = fm.fid
+    WHERE
+      n.type IN ('blog')
+      AND n.status = 1
+    ORDER BY n.created DESC
+SQL;
+
+  $result = db_query_range($sql, 0, 5);
+  $items = array();
+  foreach ($result as $row) {
+    $items[$row->nid] = $row;
+    $items[$row->nid]->image_style = image_style_url('blog_flexslider_image', $row->uri);
+  }
+
+  $output = theme('bt_homepage_carousel', array('items' => $items));
+  $variables['homepage_carousel'] = $output;
 }
 
 /**
@@ -227,6 +272,12 @@ function bt_core_theme($existing, $type, $theme, $path) {
     'variables' => array('tutorials' => NULL),
     'template' => 'tutorial-list',
     'path' => drupal_get_path('module', 'bt_core') . '/templates/tutorial',
+  );
+
+  $items['bt_homepage_carousel'] = array(
+    'variables' => array('items' => NULL),
+    'template' => 'homepage-carousel',
+    'path' => drupal_get_path('module', 'bt_core') . '/templates/homepage',
   );
 
   $items['bt_resume_page'] = array(
