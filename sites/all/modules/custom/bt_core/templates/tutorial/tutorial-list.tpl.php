@@ -1,4 +1,4 @@
-<div class="tutorials row">
+<div class="tutorials">
   <?php foreach($tutorials as $tutorial): ?>
     <div class="tutorial-wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12">
       <div class="tutorial-box" style="background-image:url(<?php echo $tutorial['image_style']; ?>)">

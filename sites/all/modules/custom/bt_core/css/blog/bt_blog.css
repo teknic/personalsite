@@ -76,9 +76,9 @@
     -webkit-transition: 0.3s ease all;
 }
 .grid-content {
-    background: #b2c3ff;
-    padding: 20px 20px 50px;
-    min-height: 170px;
+    background: #D7E6F7;
+    padding: 10px 20px 10px;
+    min-height: 150px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom: 2px solid #DDD;
@@ -89,13 +89,14 @@
 .grid-time {
     display: block;
     font-size: 13px;
-    margin-bottom: 5px;
     color: black;
+}
+.grid-content .title a {
+    color: inherit;
 }
 .grid-tags {
     color: #999;
     font-size: 11px;
-    padding-top: 5px;
     position: absolute;
     display: block;
     /*right: 20px;*/

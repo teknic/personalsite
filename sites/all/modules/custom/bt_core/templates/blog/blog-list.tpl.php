@@ -1,4 +1,4 @@
-<div class="blogs grid row">
+<div class="blogs grid">
   <?php foreach($blogs as $blog): ?>
     <div class="blog col-lg-4 col-sm-6">
       <div class="grid-box">
