@@ -122,6 +122,11 @@ function bt_core_preprocess_page(&$variables) {
     // If the node type is "blog_madness" the template suggestion will be "page--blog-madness.tpl.php".
     $variables['theme_hook_suggestions'][] = 'page__'. $variables['node']->type;
   }
+
+  if (arg(0) == 'search') {
+    $variables['page_icon'] = '<i class="fa fa-search fa-8x"></i>';
+    $variables['page_description'] = t("Hope you found it.");
+  }
 }
 
 /**
