@@ -91,6 +91,9 @@
     font-size: 13px;
     color: black;
 }
+.grid-time i {
+    padding-right: 5px;
+}
 .grid-content .title a {
     color: inherit;
 }
