@@ -121,7 +121,7 @@
               <div class="cta-icon"><i class="fa fa-tasks fa-8x"></i></div>
             </a>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4 top-to-bottom">
             <a href="/blog"><h3>Blog</h3></a>
 
             <p>Occasionally informative</p>
@@ -143,10 +143,7 @@
       </div>
     </div>
 
-    <hr class="hr-style" />
-
-
-    <div class="row">
+    <div class="row pre-footer">
       <div class="container">
         <div class="row">
           <div class="recent-posts-container col-sm-6">
@@ -191,9 +188,6 @@
 
   <footer id="footer">
     <div class="container footercontainer">
-      <p class="text-muted credit"><i class="fa fa-copyright"></i> Brandon Tate
-      </p>
-
       <div class="connect">
         <i class="fa fa-github fa-2x"></i>
         <i class="fa fa-twitter fa-2x"></i>
@@ -202,5 +196,8 @@
         <i class="fa fa-drupal fa-2x"></i>
         <i class="fa fa-youtube fa-2x"></i>
       </div>
+
+      <p class="text-muted credit"><i class="fa fa-copyright"></i> Brandon Tate
+      </p>
     </div>
   </footer>

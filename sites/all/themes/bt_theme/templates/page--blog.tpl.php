@@ -112,19 +112,22 @@
           <?php print render($page['disqus']); ?>
         <?php endif; ?>
       </section>
+    </div>
+  </div>
 
+  <div class="container-fluid">
+    <div class="row pre-footer">
       <div class="container">
         <div class="row">
-          <div class="col-sm-6">
-            <?php echo $categories; ?>
-          </div>
           <div class="col-sm-6">
             <h2>Recent Posts</h2>
             <?php echo $recent_posts; ?>
           </div>
+          <div class="col-sm-6">
+            <?php echo $categories; ?>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 
