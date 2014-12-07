@@ -134,10 +134,10 @@
 
   <div class="sticky-container">
     <ul class="sticky">
-      <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/dp1.png" /><p>Drupal</p></a></li>
-      <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/tw1.png" /><p>Twitter</p></a></li>
-      <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/gb1.png" /><p>Github</p></a></li>
-      <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/li1.png" /><p>Linkedin</p></a></li>
+      <li><a href="//www.drupal.org/u/teknic"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/dp1.png" /><p>Drupal</p></a></li>
+      <li><a href="//twitter.com/btate-teknic"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/tw1.png" /><p>Twitter</p></a></li>
+      <li><a href="//github.com/teknic"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/gb1.png" /><p>Github</p></a></li>
+      <li><a href="//ca.linkedin.com/in/tatebrandon"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/li1.png" /><p>Linkedin</p></a></li>
       <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/yt1.png" /><p>Youtube</p></a></li>
     </ul>
   </div>
