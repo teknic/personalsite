@@ -76,7 +76,8 @@
 
 <div class="wrap">
 
-  <header id="navbar" role="navigation" class="navbar navbar-default navbar-fixed-top">
+  <header id="navbar" role="navigation"
+          class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <a href="/"><i class="pull-left fa fa-html5 fa-4x"></i></a>
@@ -94,69 +95,112 @@
     </div>
   </header>
 
-  <div class="main-container container">
+  <div class="main-container container-fluid">
     <div class="row">
-      <!-- Content -->
-      <section class="col-sm-12 homepage-section">
-        <?php echo $homepage_carousel; ?>
-      </section>
-      <!-- CTAs -->
-      <div class="cta-section container round">
+      <div class="container">
         <div class="row">
-          <div class="col-sm-3 round white">
+          <!-- Content -->
+          <section class="col-sm-12 homepage-section">
+            <?php echo $homepage_carousel; ?>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <hr class="hr-style" />
+
+    <div class="row">
+      <!-- CTAs -->
+      <div class="cta-section container">
+        <div class="row">
+          <div class="col-sm-4 round">
             <a href="/open-source"><h3>Modules</h3></a>
+
             <p>Modules I've open sourced.</p>
-            <a href="/open-source"><div class="cta-icon"><i class="fa fa-tasks fa-8x"></i></div></a>
+            <a href="/open-source">
+              <div class="cta-icon"><i class="fa fa-tasks fa-8x"></i></div>
+            </a>
           </div>
-          <div class="col-sm-3 round white">
+          <div class="col-sm-4">
             <a href="/blog"><h3>Blog</h3></a>
+
             <p>Occasionally informative</p>
-            <a href="/blog"><div class="cta-icon"><i class="fa fa-database fa-8x"></i></div></a>
+            <a href="/blog">
+              <div class="cta-icon"><i class="fa fa-database fa-8x"></i>
+              </div>
+            </a>
           </div>
-          <div class="col-sm-3 round white">
+          <div class="col-sm-4">
             <a href="/tutorials"><h3>Tutorials</h3></a>
+
             <p>How to's and step-by-step's.</p>
-            <a href="/modules"><div class="cta-icon"><i class="fa fa-file-code-o fa-8x"></i></div></a>
+            <a href="/modules">
+              <div class="cta-icon"><i class="fa fa-file-code-o fa-8x"></i>
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="category-container col-sm-6">
-          <?php echo $categories; ?>
-        </div>
-        <div class="recent-posts-container col-sm-6">
-          <h2>Recent Posts</h2>
-          <?php echo $recent_posts; ?>
+    <hr class="hr-style" />
+
+
+    <div class="row">
+      <div class="container">
+        <div class="row">
+          <div class="recent-posts-container col-sm-6">
+            <h2>Recent Posts</h2>
+            <?php echo $recent_posts; ?>
+          </div>
+          <div class="category-container col-sm-6">
+            <?php echo $categories; ?>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 
   <div class="sticky-container">
     <ul class="sticky">
-      <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/dp1.png" /><p>Drupal</p></a></li>
-      <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/tw1.png" /><p>Twitter</p></a></li>
-      <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/gb1.png" /><p>Github</p></a></li>
-      <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/li1.png" /><p>Linkedin</p></a></li>
-      <li><a href="#"><img width="32" height="32" title="" alt="" src="/sites/all/themes/bt_theme/images/yt1.png" /><p>Youtube</p></a></li>
+      <li><a href="#"><img width="32" height="32" title="" alt=""
+                           src="/sites/all/themes/bt_theme/images/dp1.png"/>
+
+          <p>Drupal</p></a></li>
+      <li><a href="#"><img width="32" height="32" title="" alt=""
+                           src="/sites/all/themes/bt_theme/images/tw1.png"/>
+
+          <p>Twitter</p></a></li>
+      <li><a href="#"><img width="32" height="32" title="" alt=""
+                           src="/sites/all/themes/bt_theme/images/gb1.png"/>
+
+          <p>Github</p></a></li>
+      <li><a href="#"><img width="32" height="32" title="" alt=""
+                           src="/sites/all/themes/bt_theme/images/li1.png"/>
+
+          <p>Linkedin</p></a></li>
+      <li><a href="#"><img width="32" height="32" title="" alt=""
+                           src="/sites/all/themes/bt_theme/images/yt1.png"/>
+
+          <p>Youtube</p></a></li>
     </ul>
   </div>
 
-</div>
-
-<footer id="footer">
-  <div class="container footercontainer">
-    <p class="text-muted credit"><i class="fa fa-copyright"></i> Brandon Tate</p>
-    <div class="connect">
-      <i class="fa fa-github fa-2x"></i>
-      <i class="fa fa-twitter fa-2x"></i>
-      <i class="fa fa-stack-overflow fa-2x"></i>
-      <i class="fa fa-linkedin-square fa-2x"></i>
-      <i class="fa fa-drupal fa-2x"></i>
-      <i class="fa fa-youtube fa-2x"></i>
-    </div>
   </div>
-</footer>
+
+  <footer id="footer">
+    <div class="container footercontainer">
+      <p class="text-muted credit"><i class="fa fa-copyright"></i> Brandon Tate
+      </p>
+
+      <div class="connect">
+        <i class="fa fa-github fa-2x"></i>
+        <i class="fa fa-twitter fa-2x"></i>
+        <i class="fa fa-stack-overflow fa-2x"></i>
+        <i class="fa fa-linkedin-square fa-2x"></i>
+        <i class="fa fa-drupal fa-2x"></i>
+        <i class="fa fa-youtube fa-2x"></i>
+      </div>
+    </div>
+  </footer>

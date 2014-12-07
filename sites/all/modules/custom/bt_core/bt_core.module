@@ -241,7 +241,7 @@ function bt_core_categories() {
   $sql .= "WHERE t.vid = :vid ";
   $sql .= "GROUP BY t.tid ";
 //  $sql .= "HAVING COUNT(t.tid) > 1";
-  $result = db_query($sql, array(':vid' => $vocab->vid));
+  $result = db_query_range($sql, 0, 25, array(':vid' => $vocab->vid));
   $terms = array();
   foreach ($result as $row) {
     $term = taxonomy_term_load($row->tid);

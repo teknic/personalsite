@@ -10,16 +10,15 @@
 html,
 body {
     height: 100%;
+    width: 100%;
+    overflow-x: hidden;
     /* The html and body elements cannot have any padding or margin. */
 }
+html {
+    background: transparent;
+}
 body {
-    /*background-image: -ms-linear-gradient(bottom, #949494 0%, #002F45 100%);*/
-    /*background-image: -moz-linear-gradient(bottom, #949494 0%, #002F45 100%);*/
-    /*background-image: -o-linear-gradient(bottom, #949494 0%, #002F45 100%);*/
-    /*background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #949494), color-stop(1, #002F45));*/
-    /*background-image: -webkit-linear-gradient(bottom, #949494 0%, #002F45 100%);*/
-    /*background-image: linear-gradient(to top, #949494 0%, #002F45 100%);*/
-    /*background: #0A0A0B;*/
+    /*background-image: url('/sites/all/themes/bt_theme/images/blug-gradient.png');*/
     padding-top: 70px;
 
 }
@@ -36,8 +35,6 @@ body {
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    margin-left: 35px;
-    margin-right: 35px;
 }
 @font-face {
     font-family: 'CodePro'; /*a name to be used later*/
@@ -52,7 +49,7 @@ body {
     margin-bottom: 0px;
 }
 .navbar-default {
-    background: #0A0A0B; !important;
+    /*background: #0A0A0B; !important;*/
     border: none;
 }
 #navbar a {
@@ -230,7 +227,7 @@ body {
 #footer {
     margin-top: 20px;
     height: 60px;
-    background-color: #80a7ff;
+    /*background-color: #80a7ff;*/
 }
 .footercontainer {
     padding: 0 15px;
@@ -295,3 +292,5 @@ div.codeblock {
     color: inherit;
     text-decoration: none;
 }
+
+
