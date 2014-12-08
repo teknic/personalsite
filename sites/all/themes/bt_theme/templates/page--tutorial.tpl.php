@@ -121,7 +121,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-6">
-            <h2>Recent Posts</h2>
+            <h2 class="recent-posts-title">Recent Posts</h2>
             <?php echo $recent_posts; ?>
           </div>
           <div class="col-sm-6">

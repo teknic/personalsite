@@ -147,7 +147,7 @@
       <div class="container">
         <div class="row">
           <div class="recent-posts-container col-sm-6">
-            <h2>Recent Posts</h2>
+            <h2 class="recent-posts-title">Recent Posts</h2>
             <?php echo $recent_posts; ?>
           </div>
           <div class="category-container col-sm-6">
@@ -173,13 +173,8 @@
 
   <footer id="footer">
     <div class="container footercontainer">
-      <div class="connect">
-        <a href="//github.com/teknic"><i class="fa fa-github fa-2x"></i></a>
-        <a href="//twitter.com/btate-teknic"><i class="fa fa-twitter fa-2x"></i></a>
-        <a href="//ca.linkedin.com/in/tatebrandon"><i class="fa fa-linkedin-square fa-2x"></i></a>
-        <a href="//www.drupal.org/u/teknic"><i class="fa fa-drupal fa-2x"></i></a>
-        <a href="#"><i class="fa fa-youtube fa-2x"></i></a>
-      </div>
+      <img class="hosted-on" src="/sites/all/themes/bt_theme/images/linode.png">
+
       <p class="text-muted credit"><i class="fa fa-copyright"></i> Brandon Tate
       </p>
     </div>

@@ -284,6 +284,9 @@ body {
 .footercontainer i {
     padding-left: 10px;
 }
+.hosted-on {
+    margin-top: -20px;
+}
 
 div.codeblock {
     padding: 5px;
