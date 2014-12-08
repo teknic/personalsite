@@ -278,6 +278,9 @@ body {
 .footercontainer .connect {
     float: left;
 }
+.footercontainer .connect a {
+    color: inherit;
+}
 .footercontainer i {
     padding-left: 10px;
 }

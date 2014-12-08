@@ -174,14 +174,12 @@
   <footer id="footer">
     <div class="container footercontainer">
       <div class="connect">
-        <i class="fa fa-github fa-2x"></i>
-        <i class="fa fa-twitter fa-2x"></i>
-        <i class="fa fa-stack-overflow fa-2x"></i>
-        <i class="fa fa-linkedin-square fa-2x"></i>
-        <i class="fa fa-drupal fa-2x"></i>
-        <i class="fa fa-youtube fa-2x"></i>
+        <a href="//github.com/teknic"><i class="fa fa-github fa-2x"></i></a>
+        <a href="//twitter.com/btate-teknic"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href="//ca.linkedin.com/in/tatebrandon"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href="//www.drupal.org/u/teknic"><i class="fa fa-drupal fa-2x"></i></a>
+        <a href="#"><i class="fa fa-youtube fa-2x"></i></a>
       </div>
-
       <p class="text-muted credit"><i class="fa fa-copyright"></i> Brandon Tate
       </p>
     </div>
