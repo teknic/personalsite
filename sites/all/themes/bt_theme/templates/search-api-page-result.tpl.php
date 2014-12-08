@@ -51,3 +51,4 @@
     <?php endif; ?>
   </div>
 </li>
+<hr class="hr-style" />

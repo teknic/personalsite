@@ -78,13 +78,14 @@
 .grid-content {
     background: #D7E6F7;
     padding: 10px 20px 10px;
-    min-height: 150px;
+    min-height: 125px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom: 2px solid #DDD;
 }
-.grid-content h4 {
-    line-height: 1.5;
+.grid-content h3 {
+    margin-top:0;
+    margin-bottom: 0;
 }
 .grid-time {
     display: block;
@@ -93,6 +94,9 @@
 }
 .grid-time i {
     padding-right: 5px;
+}
+.grid-content .title {
+    padding-top: 5px;
 }
 .grid-content .title a {
     color: inherit;
