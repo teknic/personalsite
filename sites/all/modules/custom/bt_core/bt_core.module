@@ -130,8 +130,9 @@ function bt_core_preprocess_page(&$variables) {
   }
 
   if (arg(0) == 'taxonomy' && arg(1) == 'term') {
+    $variables['title'] = 'Content Tags';
     $term_name = $variables['page']['content']['system_main']['term_heading']['term']['#term']->name;
-    $variables['page_icon'] = '<i class="fa fa-search fa-8x"></i>';
+    $variables['page_icon'] = '<i class="fa fa-tags fa-8x"></i>';
     $variables['page_description'] = t("Content marked with the tag: ':term_name'", array(':term_name' => $term_name));
   }
 }
