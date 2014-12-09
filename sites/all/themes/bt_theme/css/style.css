@@ -117,7 +117,7 @@ body {
 
 .page-info {
     margin-bottom: 30px;
-    background: #D7E6F7;
+    background: #e7e7e7;
     border-radius: 5px;
     padding: 20px 40px 20px 0;
 }
@@ -258,6 +258,10 @@ body {
     padding: 0 0 60px;
 }
 
+.text-center {
+    clear: both;
+}
+
 .pre-footer {
     background-color: #e7e7e7;
 }
@@ -333,6 +337,13 @@ div.codeblock {
 .sticky a {
     color: inherit;
     text-decoration: none;
+}
+
+.page-taxonomy-term h1 {
+    margin-top: 0;
+}
+.page-taxonomy-term i {
+    padding-right: 3px;
 }
 
 

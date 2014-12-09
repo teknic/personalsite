@@ -74,13 +74,19 @@
     transition: 0.3s ease all;
     -moz-transition: 0.3s ease all;
     -webkit-transition: 0.3s ease all;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 .grid-content {
-    background: #D7E6F7;
+    background: #e7e7e7;
     padding: 10px 20px 10px;
     min-height: 125px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 .grid-content h3 {
     margin-top:0;

@@ -85,37 +85,52 @@
   <div class="content"<?php print $content_attributes; ?>>
     <div class="header">
       <div class="img-container">
-        <?php echo $tutorial_content['image']; ?>
+        <?php if (isset($tutorial_content['image'])): ?>
+          <?php echo $tutorial_content['image']; ?>
+        <?php endif; ?>
       </div>
       <div class="content-header">
         <div class="author-created">
           <span class="author"><i class="fa fa-pencil-square-o"></i><?php echo $tutorial_content['author']; ?></span>
           <span class="created"><i class="fa fa-calendar-o"></i><?php echo $tutorial_content['created_date']; ?></span>
         </div>
-        <h1><span><?php echo $title; ?></h1>
-        <h4><span><?php echo $tutorial_content['sub_heading']; ?></span></h4>
-        <div class="tags">
-          <?php foreach($tutorial_content['tags'] as $tag): ?>
-            <a href="<?php echo $tag['url']; ?>"><?php echo $tag['name']; ?></a>
-          <?php endforeach; ?>
-        </div>
+
+        <?php if ($view_mode == 'full'): ?>
+          <h1><?php echo $title; ?></h1>
+        <?php endif; ?>
+
+        <?php if ($view_mode == 'teaser'): ?>
+          <h1><a href="<?php echo $node_url; ?>"><?php echo $title; ?></a></h1>
+        <?php endif; ?>
+
+
+        <?php if (isset($tutorial_content['sub_heading'])): ?>
+          <h4><span><?php echo $tutorial_content['sub_heading']; ?></span></h4>
+        <?php endif; ?>
+
+        <?php if (isset($tutorial_content['tags'])): ?>
+          <div class="tags">
+            <?php foreach($tutorial_content['tags'] as $tag): ?>
+              <a href="<?php echo $tag['url']; ?>"><?php echo $tag['name']; ?></a>
+            <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
+
       </div>
     </div>
-    <hr class="hr-style"/>
+
+    <?php if ($view_mode == 'full'): ?>
+      <hr class="hr-style"/>
+    <?php endif; ?>
+
     <div class="content-body">
       <?php echo $tutorial_content['body']; ?>
     </div>
-    <?php
-    /**
-    Print image with title over top
-    Possibly have a subtitle as well
-    Have Posted Date, Tags at top. Could use icons here. Could also include your name here
-    for example: Published by Brandon Tate.
-    Could have a view code button somehwere to link to github examples
-    Content itself would be WYSIWYG
-    Bottom of content can have related blogs view (scotch.io) example
-     */
-    ?>
+
+    <?php if ($view_mode == 'teaser'): ?>
+      <hr class="hr-style"/>
+    <?php endif; ?>
+
   </div>
 
 </div>

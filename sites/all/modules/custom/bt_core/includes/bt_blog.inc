@@ -81,33 +81,31 @@ SQL;
  * @param $variables
  */
 function bt_blog_preprocess_blog_type(&$variables) {
-  drupal_add_css(drupal_get_path('module', 'bt_core') . '/css/blog/bt_blog.css');
-  $image = render($variables['content']['field_blog_image']);
-  $body = render($variables['content']['body']);
-  $created_date = date('F j, Y', $variables['created']);
-  $sub_heading = render($variables['content']['field_sub_heading']);
-  $tags = array();
-  foreach ($variables['field_tags'] as $tag) {
-    $tags[$tag['tid']]['name'] = $tag['taxonomy_term']->name;
-    $tags[$tag['tid']]['url'] = 'taxonomy/term/' . $tag['tid'];
+  if ($variables['view_mode'] == 'full') {
+    drupal_add_css(drupal_get_path('module', 'bt_core') . '/css/blog/bt_blog.css');
+    $image = render($variables['content']['field_blog_image']);
+    $body = render($variables['content']['body']);
+    $created_date = date('F j, Y', $variables['created']);
+    $sub_heading = render($variables['content']['field_sub_heading']);
+    $tags = array();
+    foreach ($variables['field_tags'] as $tag) {
+      $tags[$tag['tid']]['name'] = $tag['taxonomy_term']->name;
+      $tags[$tag['tid']]['url'] = 'taxonomy/term/' . $tag['tid'];
+    }
+
+    $variables['blog_content']['image'] = $image;
+    $variables['blog_content']['body'] = $body;
+    $variables['blog_content']['sub_heading'] = $sub_heading;
+    $variables['blog_content']['created_date'] = $created_date;
+    $variables['blog_content']['tags'] = $tags;
+    $variables['blog_content']['author'] = 'Brandon Tate';
   }
 
-  $variables['blog_content']['image'] = $image;
-  $variables['blog_content']['body'] = $body;
-  $variables['blog_content']['sub_heading'] = $sub_heading;
-  $variables['blog_content']['created_date'] = $created_date;
-  $variables['blog_content']['tags'] = $tags;
-  $variables['blog_content']['author'] = 'Brandon Tate';
-
-
-  /**
-   *
-   * Print image with title over top
-   * Possibly have a subtitle as well
-   * Have Posted Date, Tags at top. Could use icons here. Could also include your name here
-   * for example: Published by Brandon Tate (href link back to about page)
-   * Could have a view code button somehwere to link to github examples
-   * Content itself would be WYSIWYG
-   * Bottom of content can have related blogs view (scotch.io) example
-   */
+  if ($variables['view_mode'] == 'teaser') {
+    $body = render($variables['content']['body']);
+    $created_date = date('F j, Y', $variables['created']);
+    $variables['blog_content']['body'] = $body;
+    $variables['blog_content']['created_date'] = $created_date;
+    $variables['blog_content']['author'] = 'Brandon Tate';
+  }
 }

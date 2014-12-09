@@ -128,6 +128,12 @@ function bt_core_preprocess_page(&$variables) {
     $variables['page_icon'] = '<i class="fa fa-search fa-8x"></i>';
     $variables['page_description'] = t("It's amazing what you find when you go looking.");
   }
+
+  if (arg(0) == 'taxonomy' && arg(1) == 'term') {
+    $term_name = $variables['page']['content']['system_main']['term_heading']['term']['#term']->name;
+    $variables['page_icon'] = '<i class="fa fa-search fa-8x"></i>';
+    $variables['page_description'] = t("Content marked with the tag: ':term_name'", array(':term_name' => $term_name));
+  }
 }
 
 /**

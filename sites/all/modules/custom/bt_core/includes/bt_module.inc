@@ -59,33 +59,31 @@ SQL;
  * @param $variables
  */
 function bt_module_preprocess_module_type(&$variables) {
-  drupal_add_css(drupal_get_path('module', 'bt_core') . '/css/module/bt_module.css');
-  $image = render($variables['content']['field_module_image']);
-  $body = render($variables['content']['body']);
-  $created_date = date('F j, Y', $variables['created']);
-  $sub_heading = render($variables['content']['field_sub_heading']);
-  $tags = array();
-  foreach ($variables['field_tags'] as $tag) {
-    $tags[$tag['tid']]['name'] = $tag['taxonomy_term']->name;
-    $tags[$tag['tid']]['url'] = 'taxonomy/term/' . $tag['tid'];
+  if ($variables['view_mode'] == 'full') {
+    drupal_add_css(drupal_get_path('module', 'bt_core') . '/css/module/bt_module.css');
+    $image = render($variables['content']['field_module_image']);
+    $body = render($variables['content']['body']);
+    $created_date = date('F j, Y', $variables['created']);
+    $sub_heading = render($variables['content']['field_sub_heading']);
+    $tags = array();
+    foreach ($variables['field_tags'] as $tag) {
+      $tags[$tag['tid']]['name'] = $tag['taxonomy_term']->name;
+      $tags[$tag['tid']]['url'] = 'taxonomy/term/' . $tag['tid'];
+    }
+
+    $variables['module_content']['image'] = $image;
+    $variables['module_content']['body'] = $body;
+    $variables['module_content']['sub_heading'] = $sub_heading;
+    $variables['module_content']['created_date'] = $created_date;
+    $variables['module_content']['tags'] = $tags;
+    $variables['module_content']['author'] = 'Brandon Tate';
   }
 
-  $variables['module_content']['image'] = $image;
-  $variables['module_content']['body'] = $body;
-  $variables['module_content']['sub_heading'] = $sub_heading;
-  $variables['module_content']['created_date'] = $created_date;
-  $variables['module_content']['tags'] = $tags;
-  $variables['module_content']['author'] = 'Brandon Tate';
-
-
-  /**
-   *
-   * Print image with title over top
-   * Possibly have a subtitle as well
-   * Have Posted Date, Tags at top. Could use icons here. Could also include your name here
-   * for example: Published by Brandon Tate (href link back to about page)
-   * Could have a view code button somehwere to link to github examples
-   * Content itself would be WYSIWYG
-   * Bottom of content can have related modules view (scotch.io) example
-   */
+  if ($variables['view_mode'] == 'teaser') {
+    $body = render($variables['content']['body']);
+    $created_date = date('F j, Y', $variables['created']);
+    $variables['module_content']['body'] = $body;
+    $variables['module_content']['created_date'] = $created_date;
+    $variables['module_content']['author'] = 'Brandon Tate';
+  }
 }
