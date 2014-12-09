@@ -95,6 +95,9 @@ body {
 .top-search .form-group {
     margin-bottom: 0px;
 }
+.top-search .form-text {
+    border-radius: 0;
+}
 .search-page-form .form-group {
     margin-bottom: 0px;
 }
