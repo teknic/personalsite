@@ -74,19 +74,22 @@
     transition: 0.3s ease all;
     -moz-transition: 0.3s ease all;
     -webkit-transition: 0.3s ease all;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    /*border-top: 1px solid black;*/
+    /*border-left: 1px solid black;*/
+    /*border-right: 1px solid black;*/
 }
 .grid-content {
-    background: #e7e7e7;
+    /*background: #e7e7e7;*/
     padding: 10px 20px 10px;
-    min-height: 125px;
+    min-height: 135px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    /*border-bottom: 1px solid black;*/
+    /*border-left: 1px solid black;*/
+    /*border-right: 1px solid black;*/
+    color: #f7f5f2;
+    background: #2e3133;
+    border-top: 5px solid #8cc1c1;
 }
 .grid-content h3 {
     margin-top:0;
@@ -95,7 +98,7 @@
 .grid-time {
     display: block;
     font-size: 13px;
-    color: black;
+    /*color: black;*/
 }
 .grid-time i {
     padding-right: 5px;
@@ -113,13 +116,14 @@
     display: block;
     /*right: 20px;*/
     text-align: right;
-    padding-left: 15px;
+    margin-left: 15px;
     margin-top: -30px;
+    border: 2px solid #8cc1c1;
 }
 .grid-tags a {
     border: 1px solid black;
     padding: 2px;
-    font-family: CodePro;
+    /*font-family: CodePro;*/
     background: #766eff;
     color: white;
 }

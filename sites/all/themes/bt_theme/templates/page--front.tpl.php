@@ -76,14 +76,13 @@
 
 <div class="wrap">
 
-  <header id="navbar" role="navigation"
-          class="navbar navbar-default navbar-fixed-top">
+  <header id="navbar" role="navigation" class="navbar navbar-front navbar-default navbar-fixed-top">
     <div class="container">
-      <div class="navbar-header">
-        <a href="/"><i class="pull-left fa fa-html5 fa-4x"></i></a>
+      <div class="navbar-header navbar-front-image">
+        <a href="/"><img src="/sites/all/themes/bt_theme/images/brand2.png" /></a>
       </div>
       <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
-        <div class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse navbar-front-collapse">
           <nav role="navigation">
             <?php if (!empty($primary_nav)): ?>
               <?php print render($primary_nav); ?>
@@ -114,7 +113,7 @@
       <div class="cta-section container">
         <div class="row">
           <div class="col-sm-4 round">
-            <a href="/open-source"><h3>Modules</h3></a>
+            <a href="/open-source"><h3>Open Source</h3></a>
 
             <p>Modules I've open sourced.</p>
             <a href="/open-source">

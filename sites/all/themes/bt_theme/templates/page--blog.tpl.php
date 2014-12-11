@@ -95,9 +95,7 @@
   </header>
 
   <div class="main-container container">
-
     <div class="row">
-
       <section<?php print $content_column_class; ?>>
         <a id="main-content"></a>
         <?php print $messages; ?>
@@ -111,7 +109,7 @@
         <?php if (!empty($page['disqus'])): ?>
           <?php print render($page['disqus']); ?>
         <?php endif; ?>
-      </section>
+
     </div>
   </div>
 

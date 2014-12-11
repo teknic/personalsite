@@ -40,6 +40,14 @@ body {
     font-family: 'CodePro'; /*a name to be used later*/
     src: url('/sites/all/themes/bt_theme/fonts/Code_Pro_Demo-webfont.ttf'); /*URL to font*/
 }
+@font-face {
+    font-family: 'Cabin'; /*a name to be used later*/
+    src: url('/sites/all/themes/bt_theme/fonts/CabinSketch-Bold.otf'); /*URL to font*/
+}
+@font-face {
+    font-family: 'Seaside';
+    src: url('/sites/all/themes/bt_theme/fonts/SEASRN__.ttf');
+}
 .hr-style {
     border: 0;
     height: 1px;
@@ -70,6 +78,9 @@ body {
 #navbar {
     margin-bottom: 0px;
 }
+.navbar-nav {
+    padding-top: 4px;
+}
 .navbar-default {
     border: none;
 }
@@ -84,6 +95,28 @@ body {
         padding-top: 10px;
         padding-bottom: 10px;
     }
+}
+#navbar .navbar-collapse {
+    margin-left: 30px;
+}
+#navbar .navbar-front-collapse {
+    padding-bottom: 5px;
+}
+.navbar-header a {
+    display: block;
+    position: absolute;
+    padding-bottom: 20px;
+    background: #2e3133;
+}
+.navbar-front {
+    border-bottom: 5px solid #8cc1c1;
+    margin-bottom: 10px;
+}
+.navbar-front-image a {
+    display: block;
+    position: absolute;
+    padding-bottom: 6px;
+    background: #2e3133;
 }
 
 .homepage-section {
@@ -118,25 +151,43 @@ body {
     padding: 0;
 }
 
+.cont-fluid {
+    margin-top: -20px;
+}
+
+.header-fluid {
+    color: #f7f5f2;
+    background: #2e3133;
+    border-bottom: 5px solid #8cc1c1;
+    border-top: 5px solid #8cc1c1;
+    margin-bottom: 10px;
+}
+
 .page-info {
-    margin-bottom: 30px;
-    background: #e7e7e7;
-    border-radius: 5px;
-    padding: 20px 40px 20px 0;
+    display: table;
+    margin: 0 auto;
+    /*border-radius: 5px;*/
+    padding: 20px 0px 20px 0;
 }
-.page-info .page-icon {
-    float: left;
-    margin-left: 10px;
-    margin-top: -10px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-}
+/*.page-info .page-icon {*/
+    /*float: left;*/
+    /*padding: 0px 10px 0px 10px;*/
+/*}*/
 .page-header {
-    padding-bottom: 5px;
-    border-bottom: none;
+    /*font-family: Cabin;*/
+    display: inline;
+    padding-right: 10px;
+    text-align: center;
+    border: none;
 }
-.page-description {
-    font-size: 16px;
+.page-closing {
+    /*font-family: Cabin;*/
+    display: inline;
+}
+.page-info h3 {
+    /*font-family: Cabin;*/
+    display: inline;
+    text-align: center;
 }
 
 /**
@@ -266,7 +317,10 @@ body {
 }
 
 .pre-footer {
-    background-color: #e7e7e7;
+    padding-bottom: 30px;
+    color: #f7f5f2;
+    background: #2e3133;
+    border-top: 5px solid #8cc1c1;
 }
 
 /* Set the fixed height of the footer here */
@@ -292,7 +346,7 @@ body {
     padding-left: 10px;
 }
 .hosted-on {
-    margin-top: -20px;
+    margin-top: -12px;
 }
 
 div.codeblock {

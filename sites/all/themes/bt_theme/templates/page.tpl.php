@@ -79,7 +79,7 @@
   <header id="navbar" role="navigation" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <a href="/"><i class="pull-left fa fa-html5 fa-4x"></i></a>
+        <a href="/"><img src="/sites/all/themes/bt_theme/images/brand2.png" /></a>
       </div>
       <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
         <div class="navbar-collapse collapse">
@@ -94,39 +94,49 @@
     </div>
   </header>
 
-  <div class="main-container container">
+  <div class="main-container container-fluid">
     <div class="row">
 
-      <section<?php print $content_column_class; ?>>
-        <?php if (!empty($page['highlighted'])): ?>
-          <div
-            class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
-        <?php endif; ?>
-        <?php if (!empty($breadcrumb)): print $breadcrumb; endif; ?>
-        <a id="main-content"></a>
-        <?php if (!empty($title)): ?>
-          <div class="page-info">
-            <?php if (isset($page_icon)): ?>
-              <div class="page-icon"><?php echo $page_icon; ?></div>
-            <?php endif; ?>
-            <h1 class="page-header"><?php print $title; ?></h1>
-            <?php if (isset($page_description)): ?>
-            <div class="page-description"><?php echo $page_description; ?></div>
-            <?php endif; ?>
+      <div class="container-fluid cont-fluid">
+        <div class="row header-fluid">
+          <div class="container">
+            <div class="row">
+              <?php if (!empty($title)): ?>
+                <div class="page-info">
+                  <h1 class="page-header">
+                    <?php echo "" . $title; ?>:
+                  </h1>
+                  <h3>
+                    <?php echo $page_description; ?>
+                  </h3>
+                  <h1 class="page-closing">
+                    <?php echo ""; ?>
+                  </h1>
+                </div>
+              <?php endif; ?>
+            </div>
           </div>
-        <?php endif; ?>
-        <?php print $messages; ?>
-        <?php if (!empty($tabs)): ?>
-          <?php print render($tabs); ?>
-        <?php endif; ?>
-        <?php if (!empty($page['help'])): ?>
-          <?php print render($page['help']); ?>
-        <?php endif; ?>
-        <?php print render($page['content']); ?>
-        <?php if (!empty($page['disqus'])): ?>
-          <?php print render($page['disqus']); ?>
-        <?php endif; ?>
-      </section>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <section<?php print $content_column_class; ?>>
+            <a id="main-content"></a>
+            <?php print $messages; ?>
+            <?php if (!empty($tabs)): ?>
+              <?php print render($tabs); ?>
+            <?php endif; ?>
+            <?php if (!empty($page['help'])): ?>
+              <?php print render($page['help']); ?>
+            <?php endif; ?>
+            <?php print render($page['content']); ?>
+            <?php if (!empty($page['disqus'])): ?>
+              <?php print render($page['disqus']); ?>
+            <?php endif; ?>
+          </section>
+        </div>
+      </div>
     </div>
   </div>
 
