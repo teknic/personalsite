@@ -171,7 +171,6 @@
   <footer id="footer">
     <div class="container footercontainer">
       <img class="hosted-on" src="/sites/all/themes/bt_theme/images/linode.png">
-
       <p class="text-muted credit"><i class="fa fa-copyright"></i> Brandon Tate
       </p>
     </div>
