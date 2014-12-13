@@ -77,10 +77,7 @@
 <div class="wrap">
 
   <header id="navbar" role="navigation" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a href="/"><img src="/sites/all/themes/bt_theme/images/brand2.png" /></a>
-      </div>
+    <div class="container nav-container">
       <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
         <div class="navbar-collapse collapse">
           <nav role="navigation">
@@ -88,6 +85,7 @@
               <?php print render($primary_nav); ?>
             <?php endif; ?>
           </nav>
+          <h1 class="site-name"><a href="/">Brandon Tate</a></h1>
           <?php print render($search); ?>
         </div>
       <?php endif; ?>

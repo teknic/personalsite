@@ -76,11 +76,8 @@
 
 <div class="wrap">
 
-  <header id="navbar" role="navigation" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a href="/"><i class="pull-left fa fa-html5 fa-4x"></i></a>
-      </div>
+  <header id="navbar" role="navigation" class="navbar navbar-default navbar-fixed-top navbar-front">
+    <div class="container nav-container">
       <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
         <div class="navbar-collapse collapse">
           <nav role="navigation">
@@ -88,6 +85,7 @@
               <?php print render($primary_nav); ?>
             <?php endif; ?>
           </nav>
+          <h1 class="site-name"><a href="/">Brandon Tate</a></h1>
           <?php print render($search); ?>
         </div>
       <?php endif; ?>
