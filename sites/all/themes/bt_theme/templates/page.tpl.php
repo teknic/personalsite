@@ -104,13 +104,13 @@
               <?php if (!empty($title)): ?>
                 <div class="page-info">
                   <h1 class="page-header">
-                    <?php echo "" . $title; ?>:
+                    <?php echo $title; ?> {
                   </h1>
                   <h3>
                     <?php echo $page_description; ?>
                   </h3>
                   <h1 class="page-closing">
-                    <?php echo ""; ?>
+                    }
                   </h1>
                 </div>
               <?php endif; ?>

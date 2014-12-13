@@ -91,31 +91,36 @@ function bt_core_preprocess_page(&$variables) {
   }
 
   if (arg(0) == 'about' || (arg(0) == 'node' && arg(1) == 1)) {
+    $variables['title'] = 'about()';
     $variables['page_icon'] = '<i class="fa fa-barcode fa-8x"></i>';
-    $variables['page_description'] = t("You have some splaining to do.");
+    $variables['page_description'] = t("you have some splaining to do;");
   }
 
   if (arg(0) == 'blog') {
     if ($_GET['q'] == 'blog') {
       unset($variables['theme_hook_suggestions'][0]);
     }
+    $variables['title'] = 'blog()';
     $variables['page_icon'] = '<i class="fa fa-database fa-4x"></i>';
-    $variables['page_description'] = t('Informative yet useless at the same time, amazing.');
+    $variables['page_description'] = t('informative yet useless at the same time, amazing;');
   }
 
   if (arg(0) == 'open-source') {
+    $variables['title'] = 'openSource()';
     $variables['page_icon'] = '<i class="fa fa-tasks fa-8x"></i>';
-    $variables['page_description'] = t('Open source modules for everyone!');
+    $variables['page_description'] = t('open source modules for everyone;');
   }
 
   if (arg(0) == 'tutorials') {
+    $variables['title'] = 'tutorials()';
     $variables['page_icon'] = '<i class="fa fa-file-code-o fa-8x"></i>';
-    $variables['page_description'] = t("Some examples, how to's and step-by-step's");
+    $variables['page_description'] = t("some examples, how to's and step-by-step's;");
   }
 
   if (arg(0) == 'contact') {
+    $variables['title'] = 'contact()';
     $variables['page_icon'] = '<i class="fa fa-envelope fa-8x"></i>';
-    $variables['page_description'] = t("Got a question? Feel free to contact me.");
+    $variables['page_description'] = t("got a question? Feel free to contact me;");
   }
 
   if (isset($variables['node']) && ($variables['node']->type == 'blog' || $variables['node']->type == 'module' || $variables['node']->type =='tutorial')) {
@@ -125,15 +130,16 @@ function bt_core_preprocess_page(&$variables) {
 
   if (arg(0) == 'search') {
     drupal_add_js(drupal_get_path('module', 'bt_core') . '/js/bt_search.js');
+    $variables['title'] = 'search()';
     $variables['page_icon'] = '<i class="fa fa-search fa-8x"></i>';
-    $variables['page_description'] = t("It's amazing what you find when you go looking.");
+    $variables['page_description'] = t("it's amazing what you find when you go looking;");
   }
 
   if (arg(0) == 'taxonomy' && arg(1) == 'term') {
-    $variables['title'] = 'Content Tags';
+    $variables['title'] = 'contentTags()';
     $term_name = $variables['page']['content']['system_main']['term_heading']['term']['#term']->name;
     $variables['page_icon'] = '<i class="fa fa-tags fa-8x"></i>';
-    $variables['page_description'] = t("Content marked with the tag: ':term_name'", array(':term_name' => $term_name));
+    $variables['page_description'] = t("content marked with the tag: ':term_name';", array(':term_name' => $term_name));
   }
 }
 
