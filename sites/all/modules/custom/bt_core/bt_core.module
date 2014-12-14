@@ -87,13 +87,14 @@ function bt_core_preprocess_page(&$variables) {
 
   // Add carousel
   if (drupal_is_front_page()) {
+    drupal_set_title('Open Source Blog & Tutorials');
     bt_core_homepage_carousel($variables);
   }
 
   if (arg(0) == 'about' || (arg(0) == 'node' && arg(1) == 1)) {
-    $variables['title'] = 'about()';
+    $variables['title'] = 'about() {';
     $variables['page_icon'] = '<i class="fa fa-barcode fa-8x"></i>';
-    $variables['page_description'] = t("you have some splaining to do;");
+    $variables['page_description'] = t("self.explain | clean");
   }
 
   if (arg(0) == 'blog') {
@@ -102,25 +103,25 @@ function bt_core_preprocess_page(&$variables) {
     }
     $variables['title'] = 'blog() {';
     $variables['page_icon'] = '<i class="fa fa-database fa-4x"></i>';
-    $variables['page_description'] = t('informative yet useless at the same time, amazing;');
+    $variables['page_description'] = t('self.knowledge(web development, php, javascript)');
   }
 
   if (arg(0) == 'open-source') {
     $variables['title'] = 'openSource() {';
     $variables['page_icon'] = '<i class="fa fa-tasks fa-8x"></i>';
-    $variables['page_description'] = t('open source modules for everyone;');
+    $variables['page_description'] = t("self.develop | opensource");
   }
 
   if (arg(0) == 'tutorials') {
     $variables['title'] = 'tutorials() {';
     $variables['page_icon'] = '<i class="fa fa-file-code-o fa-8x"></i>';
-    $variables['page_description'] = t("some examples, how to's and step-by-step's;");
+    $variables['page_description'] = t("how-to's and step-by-step's");
   }
 
   if (arg(0) == 'contact') {
     $variables['title'] = 'contact() {';
     $variables['page_icon'] = '<i class="fa fa-envelope fa-8x"></i>';
-    $variables['page_description'] = t("got a question? Feel free to contact me;");
+    $variables['page_description'] = t("got a question?");
   }
 
   if (isset($variables['node']) && ($variables['node']->type == 'blog' || $variables['node']->type == 'module' || $variables['node']->type =='tutorial')) {
@@ -132,7 +133,7 @@ function bt_core_preprocess_page(&$variables) {
     drupal_add_js(drupal_get_path('module', 'bt_core') . '/js/bt_search.js');
     $variables['title'] = 'search()';
     $variables['page_icon'] = '<i class="fa fa-search fa-8x"></i>';
-    $variables['page_description'] = t("it's amazing what you find when you go looking;");
+    $variables['page_description'] = t("be careful what you ask for");
   }
 
   if (arg(0) == 'taxonomy' && arg(1) == 'term') {
