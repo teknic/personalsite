@@ -76,7 +76,7 @@
 
 <div class="wrap">
 
-  <header id="navbar" role="navigation" class="navbar navbar-default navbar-fixed-top">
+  <header id="navbar" role="navigation" class="navbar navbar-default navbar-fixed-top navbar-front">
     <div class="container nav-container">
       <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
         <div class="navbar-collapse collapse">
