@@ -113,7 +113,7 @@
           <div class="col-sm-4 round">
             <a href="/open-source"><h3>Open Source</h3></a>
 
-            <p>Modules I've open sourced.</p>
+            <p>Contributed code to the community</p>
             <a href="/open-source">
               <div class="cta-icon"><i class="fa fa-tasks fa-8x"></i></div>
             </a>
@@ -121,7 +121,7 @@
           <div class="col-sm-4 top-to-bottom">
             <a href="/blog"><h3>Blog</h3></a>
 
-            <p>Occasionally informative</p>
+            <p>Experiences in web development</p>
             <a href="/blog">
               <div class="cta-icon"><i class="fa fa-database fa-8x"></i>
               </div>
@@ -130,7 +130,7 @@
           <div class="col-sm-4">
             <a href="/tutorials"><h3>Tutorials</h3></a>
 
-            <p>How to's and step-by-step's.</p>
+            <p>How-to's and step-by-step's.</p>
             <a href="/modules">
               <div class="cta-icon"><i class="fa fa-file-code-o fa-8x"></i>
               </div>
