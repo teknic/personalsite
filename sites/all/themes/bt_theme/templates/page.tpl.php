@@ -102,14 +102,16 @@
               <?php if (!empty($title)): ?>
                 <div class="page-info">
                   <h1 class="page-header">
-                    <?php echo $title; ?> {
+                    <?php echo $title; ?>
                   </h1>
+                  <?php if (isset($page_description)): ?>
                   <h3>
                     <?php echo $page_description; ?>
                   </h3>
                   <h1 class="page-closing">
                     }
                   </h1>
+                  <?php endif; ?>
                 </div>
               <?php endif; ?>
             </div>
