@@ -100,25 +100,25 @@ function bt_core_preprocess_page(&$variables) {
     if ($_GET['q'] == 'blog') {
       unset($variables['theme_hook_suggestions'][0]);
     }
-    $variables['title'] = 'blog()';
+    $variables['title'] = 'blog() {';
     $variables['page_icon'] = '<i class="fa fa-database fa-4x"></i>';
     $variables['page_description'] = t('informative yet useless at the same time, amazing;');
   }
 
   if (arg(0) == 'open-source') {
-    $variables['title'] = 'openSource()';
+    $variables['title'] = 'openSource() {';
     $variables['page_icon'] = '<i class="fa fa-tasks fa-8x"></i>';
     $variables['page_description'] = t('open source modules for everyone;');
   }
 
   if (arg(0) == 'tutorials') {
-    $variables['title'] = 'tutorials()';
+    $variables['title'] = 'tutorials() {';
     $variables['page_icon'] = '<i class="fa fa-file-code-o fa-8x"></i>';
     $variables['page_description'] = t("some examples, how to's and step-by-step's;");
   }
 
   if (arg(0) == 'contact') {
-    $variables['title'] = 'contact()';
+    $variables['title'] = 'contact() {';
     $variables['page_icon'] = '<i class="fa fa-envelope fa-8x"></i>';
     $variables['page_description'] = t("got a question? Feel free to contact me;");
   }
@@ -136,7 +136,7 @@ function bt_core_preprocess_page(&$variables) {
   }
 
   if (arg(0) == 'taxonomy' && arg(1) == 'term') {
-    $variables['title'] = 'contentTags()';
+    $variables['title'] = 'contentTags() {';
     $term_name = $variables['page']['content']['system_main']['term_heading']['term']['#term']->name;
     $variables['page_icon'] = '<i class="fa fa-tags fa-8x"></i>';
     $variables['page_description'] = t("content marked with the tag: ':term_name';", array(':term_name' => $term_name));
