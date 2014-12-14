@@ -50,12 +50,12 @@ body {
 }
 @font-face {
     font-family: 'MostWasted';
-    src: url('/sites/all/themes/bt_theme/fonts/mostwasted-webfont.eot'); /* IE9 Compat Modes */
-    src: url('/sites/all/themes/bt_theme/fonts/mostwasted-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('/sites/all/themes/bt_theme/fonts/mostwasted-webfont.woff2') format('woff2'), /* Super Modern Browsers */
-    url('/sites/all/themes/bt_theme/fonts/mostwasted-webfont.woff.woff') format('woff'), /* Pretty Modern Browsers */
-    url('/sites/all/themes/bt_theme/fonts/mostwasted-webfont.ttf.ttf')  format('truetype'), /* Safari, Android, iOS */
-    url('/sites/all/themes/bt_theme/fonts/mostwasted-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+    src: url('/sites/all/themes/bt_theme/fonts/mostwasted-webfont.eot');
+    src: url('/sites/all/themes/bt_theme/fonts/mostwasted-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/sites/all/themes/bt_theme/fonts/mostwasted-webfont.woff2') format('woff2'),
+    url('/sites/all/themes/bt_theme/fonts/mostwasted-webfont.woff') format('woff'),
+    url('/sites/all/themes/bt_theme/fonts/mostwasted-webfont.ttf') format('truetype'),
+    url('/sites/all/themes/bt_theme/fonts/mostwasted-webfont.svg#MostWasted') format('svg');
 }
 .hr-style {
     border: 0;
